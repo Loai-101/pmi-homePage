@@ -14,59 +14,34 @@ function App() {
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    const hasVisited = localStorage.getItem('hasVisitedBefore');
-    const hasPlayed = localStorage.getItem('descAnimationPlayed');
+    const words = DESCRIPTION.split(' ');
+    let i = 0;
+    setDescWords([]);
+    setDescriptionComplete(false);
+    setIsInitialized(true);
     
-    if (hasVisited && hasPlayed) {
-      // User has visited before and animations have played - show everything immediately
-      setDescWords(DESCRIPTION.split(' '));
-      setDescriptionComplete(true);
-      setIsInitialized(true);
-    } else if (!hasVisited) {
-      // First time visitor - play animations
-      localStorage.setItem('hasVisitedBefore', 'true');
-      const words = DESCRIPTION.split(' ');
-      let i = 0;
-      setDescWords([]);
-      setDescriptionComplete(false);
-      setIsInitialized(true);
+    // Start typing animation after a brief delay
+    const startDelay = setTimeout(() => {
+      const interval = setInterval(() => {
+        setDescWords((prev) => [...prev, words[i]]);
+        i++;
+        if (i === words.length) {
+          clearInterval(interval);
+          setDescriptionComplete(true);
+        }
+      }, 300); // 300ms per word for smooth typing effect
       
-      // Start typing animation after a brief delay
-      const startDelay = setTimeout(() => {
-        const interval = setInterval(() => {
-          setDescWords((prev) => [...prev, words[i]]);
-          i++;
-          if (i === words.length) {
-            clearInterval(interval);
-            setDescriptionComplete(true);
-            localStorage.setItem('descAnimationPlayed', 'true');
-          }
-        }, 300); // 300ms per word for smooth typing effect
-        
-        return () => clearInterval(interval);
-      }, 800); // 800ms delay before starting typing
-      
-      return () => clearTimeout(startDelay);
-    } else {
-      // User has visited before but animations haven't played (edge case) - show everything immediately
-      setDescWords(DESCRIPTION.split(' '));
-      setDescriptionComplete(true);
-      setIsInitialized(true);
-    }
+      return () => clearInterval(interval);
+    }, 800); // 800ms delay before starting typing
+    
+    return () => clearTimeout(startDelay);
   }, []);
 
   // Cards animation effect - now waits for description to complete
   useEffect(() => {
     if (!isInitialized) return;
     
-    const hasVisited = localStorage.getItem('hasVisitedBefore');
-    const hasCardsPlayed = localStorage.getItem('cardsAnimationPlayed');
-    
-    if (hasVisited && hasCardsPlayed) {
-      // User has visited before and animations have played - show all cards immediately
-      setVisibleCards(functions.map((_, index) => index));
-    } else if (!hasVisited && descriptionComplete) {
-      // First time visitor - play card animations
+    if (descriptionComplete) {
       setVisibleCards([]);
       
       // Start showing cards one by one after description animation completes
@@ -78,7 +53,6 @@ function App() {
             currentIndex++;
           } else {
             clearInterval(interval);
-            localStorage.setItem('cardsAnimationPlayed', 'true');
           }
         }, 300); // Show a new card every 300ms for sequential animation
         
@@ -86,9 +60,6 @@ function App() {
       }, 1500); // Wait 1.5 seconds after description completes to start card animation
       
       return () => clearTimeout(timer);
-    } else if (hasVisited && !hasCardsPlayed) {
-      // User has visited before but card animations haven't played (edge case) - show all cards immediately
-      setVisibleCards(functions.map((_, index) => index));
     }
   }, [descriptionComplete, isInitialized]);
 
