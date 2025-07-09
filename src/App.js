@@ -14,28 +14,27 @@ function App() {
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    const words = DESCRIPTION.split(' ');
+    const words = DESCRIPTION.split(' ').filter(word => word.trim() !== '');
     setVisibleDescWords([]);
     setDescriptionComplete(false);
     setIsInitialized(true);
     
     // Start the word animation after a short delay
     const startDelay = setTimeout(() => {
-      let currentIndex = 0;
-      const animateWords = () => {
-        if (currentIndex < words.length) {
-          setVisibleDescWords(prev => [...prev, currentIndex]);
-          currentIndex++;
-          // Faster timing for mobile, slower for desktop
-          const delay = window.innerWidth <= 768 ? 80 : 100;
-          setTimeout(animateWords, delay);
-        } else {
-          // Ensure all words are visible and mark as complete
-          setVisibleDescWords(words.map((_, i) => i));
-          setDescriptionComplete(true);
+      // Use a more reliable approach with Promise-based delays
+      const animateWordsSequentially = async () => {
+        for (let i = 0; i < words.length; i++) {
+          await new Promise(resolve => {
+            setTimeout(() => {
+              setVisibleDescWords(prev => [...prev, i]);
+              resolve();
+            }, window.innerWidth <= 768 ? 80 : 100);
+          });
         }
+        setDescriptionComplete(true);
       };
-      animateWords();
+      
+      animateWordsSequentially();
       
       // Fallback: ensure all words are visible after 5 seconds
       const fallback = setTimeout(() => {
@@ -165,7 +164,7 @@ function App() {
             </div>
             <p className="text-base sm:text-lg lg:text-xl mb-4 px-4 sm:px-0">
               <span id="desc-blue">
-                {DESCRIPTION.split(' ').map((word, idx) => (
+                {DESCRIPTION.split(' ').filter(word => word.trim() !== '').map((word, idx) => (
                   <span
                     key={idx}
                     className={`desc-word${!visibleDescWords.includes(idx) ? ' hidden-word' : ''}${visibleDescWords.includes(idx) ? ' word-animate' : ''}`}
