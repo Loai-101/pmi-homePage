@@ -8,34 +8,31 @@ const DESCRIPTION = "Through creativity, innovation and quality, we empower live
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [descWords, setDescWords] = useState([]);
+  const [visibleDescWords, setVisibleDescWords] = useState([]);
   const [visibleCards, setVisibleCards] = useState([]);
   const [descriptionComplete, setDescriptionComplete] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     const words = DESCRIPTION.split(' ');
-    let i = 0;
-    setDescWords([]);
+    setVisibleDescWords([]);
     setDescriptionComplete(false);
     setIsInitialized(true);
     
-    // Start typing animation after a brief delay
+    // Start the word animation after a short delay
     const startDelay = setTimeout(() => {
-              const interval = setInterval(() => {
-          setDescWords((prev) => [...prev, words[i]]);
-          i++;
-          if (i === words.length) {
-            clearInterval(interval);
-            // Add a small delay before marking as complete for smoother transition
-            setTimeout(() => {
-              setDescriptionComplete(true);
-            }, 300);
-          }
-        }, 150); // 150ms per word for smoother typing effect
-      
-      return () => clearInterval(interval);
-    }, 800); // 800ms delay before starting typing
+      let currentIndex = 0;
+      const animateWords = () => {
+        if (currentIndex < words.length) {
+          setVisibleDescWords(prev => [...prev, currentIndex]);
+          currentIndex++;
+          setTimeout(animateWords, 100); // 100ms between each word
+        } else {
+          setDescriptionComplete(true);
+        }
+      };
+      animateWords();
+    }, 800); // 800ms initial delay
     
     return () => clearTimeout(startDelay);
   }, []);
@@ -43,25 +40,18 @@ function App() {
   // Cards animation effect - now waits for description to complete
   useEffect(() => {
     if (!isInitialized) return;
-    
     if (descriptionComplete) {
       setVisibleCards([]);
-      
-      // Start showing cards one by one after description animation completes
       const timer = setTimeout(() => {
-        // Add first card with initial delay
         setTimeout(() => {
           setVisibleCards([0]);
         }, 0);
-        
-        // Add remaining cards with sequential delays
         for (let i = 1; i < functions.length; i++) {
           setTimeout(() => {
             setVisibleCards(prev => [...prev, i]);
-          }, i * 200); // 200ms delay between each card for better mobile performance
+          }, i * 200);
         }
-      }, 1500); // Wait 1.5 seconds after description completes to start card animation
-      
+      }, 1500);
       return () => clearTimeout(timer);
     }
   }, [descriptionComplete, isInitialized]);
@@ -166,7 +156,7 @@ function App() {
                 {DESCRIPTION.split(' ').map((word, idx) => (
                   <span
                     key={idx}
-                    className={`desc-word${idx >= descWords.length ? ' hidden-word' : ''}${idx === descWords.length - 1 && descWords.length > 0 ? ' typing' : ''}`}
+                    className={`desc-word${!visibleDescWords.includes(idx) ? ' hidden-word' : ''}${visibleDescWords.includes(idx) ? ' word-animate' : ''}`}
                   >
                     {word}
                   </span>

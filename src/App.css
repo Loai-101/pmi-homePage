@@ -104,34 +104,33 @@ a:focus {
   perspective: 1000px;
 }
 
-/* Typing animation enhancement */
+/* Simple fade-in animation */
 .desc-word {
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   display: inline-block;
   will-change: opacity, transform;
+  margin-right: 0.25em;
 }
 
 .hidden-word {
   opacity: 0;
-  transform: translateY(6px);
+  transform: translateY(15px) scale(0.98);
   display: inline-block;
+  margin-right: 0.25em;
 }
 
-/* Enhanced typing effect */
-.desc-word.typing {
-  animation: typingPulse 0.6s ease-in-out;
+.word-animate {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  animation: wordFadeIn 0.6s ease-out forwards;
 }
 
-@keyframes typingPulse {
+@keyframes wordFadeIn {
   0% {
     opacity: 0;
-    transform: translateY(6px) scale(0.98);
-  }
-  50% {
-    opacity: 0.8;
-    transform: translateY(2px) scale(1.01);
+    transform: translateY(15px) scale(0.98);
   }
   100% {
     opacity: 1;
@@ -808,19 +807,6 @@ a:focus {
 #desc-blue {
   color: #fff !important;
   text-shadow: 0 2px 8px rgba(0,0,0,0.10) !important;
-  opacity: 0;
-  animation: paragraphFadeIn 1s ease-in-out 0.5s forwards;
-}
-
-@keyframes paragraphFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .desc-word {
@@ -867,28 +853,24 @@ a:focus {
   }
 }
 
-/* Mobile typing animation optimizations */
+/* Mobile optimizations for word animation */
 @media (max-width: 768px) {
   .desc-word {
-    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
   }
   
   .hidden-word {
-    transform: translateY(4px);
+    transform: translateY(10px) scale(0.99);
   }
   
-  .desc-word.typing {
-    animation: typingPulse 0.5s ease-in-out;
+  .word-animate {
+    animation: wordFadeInMobile 0.5s ease-out forwards;
   }
   
-  @keyframes typingPulse {
+  @keyframes wordFadeInMobile {
     0% {
       opacity: 0;
-      transform: translateY(4px) scale(0.99);
-    }
-    50% {
-      opacity: 0.8;
-      transform: translateY(1px) scale(1.005);
+      transform: translateY(10px) scale(0.99);
     }
     100% {
       opacity: 1;
