@@ -108,33 +108,30 @@ a:focus {
 .desc-word {
   opacity: 1;
   transform: translateY(0);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
   display: inline-block;
+  will-change: opacity, transform;
 }
 
 .hidden-word {
   opacity: 0;
-  transform: translateY(15px);
+  transform: translateY(8px);
   display: inline-block;
 }
 
 /* Enhanced typing effect */
 .desc-word.typing {
-  animation: typingPulse 0.6s ease-in-out;
+  animation: typingPulse 0.4s ease-out;
 }
 
 @keyframes typingPulse {
   0% {
     opacity: 0;
-    transform: translateY(15px) scale(0.95);
-  }
-  50% {
-    opacity: 0.7;
-    transform: translateY(5px) scale(1.02);
+    transform: translateY(8px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
@@ -850,6 +847,32 @@ a:focus {
   .function-card-title {
     font-size: 1rem;
     line-height: 1.2;
+  }
+}
+
+/* Mobile typing animation optimizations */
+@media (max-width: 768px) {
+  .desc-word {
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  }
+  
+  .hidden-word {
+    transform: translateY(6px);
+  }
+  
+  .desc-word.typing {
+    animation: typingPulse 0.3s ease-out;
+  }
+  
+  @keyframes typingPulse {
+    0% {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 

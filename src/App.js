@@ -29,7 +29,7 @@ function App() {
           clearInterval(interval);
           setDescriptionComplete(true);
         }
-      }, 300); // 300ms per word for smooth typing effect
+              }, 200); // 200ms per word for smoother typing effect
       
       return () => clearInterval(interval);
     }, 800); // 800ms delay before starting typing
