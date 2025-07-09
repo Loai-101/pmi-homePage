@@ -66,7 +66,7 @@ function App() {
             clearInterval(interval);
             localStorage.setItem('cardsAnimationPlayed', 'true');
           }
-        }, 1000); // Show a new card every 1000ms for slower sequence
+        }, 300); // Show a new card every 300ms for sequential animation
         
         return () => clearInterval(interval);
       }, 1500); // Wait 1.5 seconds after description completes to start card animation
@@ -192,9 +192,6 @@ function App() {
                     ? 'card-animate-in' 
                     : 'opacity-0 transform translate-y-8'
                 }`}
-                style={{
-                  animationDelay: visibleCards.includes(index) ? `${index * 300}ms` : '0ms'
-                }}
               >
                 <FunctionCard 
                   function={pmFunction} 

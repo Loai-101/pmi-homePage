@@ -70,15 +70,15 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
       <div className={`sparkling-bg rounded-xl shadow-lg p-8 theme-transition animate-fade-in-up border border-gray-300 dark:border-gray-600 ${themeStyles.cardClass} ${themeStyles.glowClass}`}>
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6 relative z-10">
           <div className="flex-shrink-0">
-            <div className={`w-48 h-48 rounded-full overflow-hidden bg-white dark:bg-gray-800 p-6 shadow-md ${!imageLoaded ? 'image-loading' : ''} ${themeStyles.shimmerClass}`}>
-              <img
-                src={imageError ? 'https://via.placeholder.com/192x192/1e40af/ffffff?text=PMI' : pmFunction.logo}
-                alt={`${pmFunction.name} logo`}
-                className="w-full h-full object-contain"
-                onLoad={handleImageLoad}
-                onError={handleImageError}
-              />
-            </div>
+                    <div className={`w-48 h-48 ${!imageLoaded ? 'image-loading' : ''} ${themeStyles.shimmerClass}`}>
+          <img
+            src={imageError ? 'https://via.placeholder.com/192x192/1e40af/ffffff?text=PMI' : pmFunction.logo}
+            alt={`${pmFunction.name} logo`}
+            className="w-full h-full object-contain"
+            onLoad={handleImageLoad}
+            onError={handleImageError}
+          />
+        </div>
           </div>
           <div className="flex-1 text-center md:text-left">
             <h3 className={`text-3xl font-black mb-4 tracking-wide uppercase ${themeStyles.nameClass}`}>
@@ -110,7 +110,7 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
       aria-label={`${pmFunction.name} - Click to learn more`}
     >
       <div className="p-6 relative z-10 h-full flex flex-col items-center justify-center">
-        <div className={`w-32 h-32 rounded-full overflow-hidden bg-white dark:bg-gray-800 p-3 shadow-md mb-4 ${!imageLoaded ? 'image-loading' : ''} ${themeStyles.shimmerClass}`}>
+        <div className={`w-32 h-32 mb-4 ${!imageLoaded ? 'image-loading' : ''} ${themeStyles.shimmerClass}`}>
           <img
             src={imageError ? 'https://via.placeholder.com/128x128/1e40af/ffffff?text=PMI' : pmFunction.logo}
             alt={`${pmFunction.shortName} logo`}
