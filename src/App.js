@@ -46,17 +46,17 @@ function App() {
       
       // Start showing cards one by one after description animation completes
       const timer = setTimeout(() => {
-        let currentIndex = 0;
-        const interval = setInterval(() => {
-          if (currentIndex < functions.length) {
-            setVisibleCards(prev => [...prev, currentIndex]);
-            currentIndex++;
-          } else {
-            clearInterval(interval);
-          }
-        }, 300); // Show a new card every 300ms for sequential animation
+        // Add first card with initial delay
+        setTimeout(() => {
+          setVisibleCards([0]);
+        }, 0);
         
-        return () => clearInterval(interval);
+        // Add remaining cards with sequential delays
+        for (let i = 1; i < functions.length; i++) {
+          setTimeout(() => {
+            setVisibleCards(prev => [...prev, i]);
+          }, i * 300); // 300ms delay between each card
+        }
       }, 1500); // Wait 1.5 seconds after description completes to start card animation
       
       return () => clearTimeout(timer);
@@ -175,7 +175,7 @@ function App() {
             {functions.map((pmFunction, index) => (
               <div
                 key={pmFunction.id}
-                className={`h-full ${
+                className={`h-full transition-all duration-300 ${
                   visibleCards.includes(index) 
                     ? 'card-animate-in' 
                     : 'opacity-0 transform translate-y-8'
