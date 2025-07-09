@@ -10,20 +10,27 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [descWords, setDescWords] = useState([]);
   const [visibleCards, setVisibleCards] = useState([]);
+  const [descriptionComplete, setDescriptionComplete] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     const hasPlayed = localStorage.getItem('descAnimationPlayed');
     if (hasPlayed) {
       setDescWords(DESCRIPTION.split(' '));
+      setDescriptionComplete(true);
+      setIsInitialized(true);
     } else {
       const words = DESCRIPTION.split(' ');
       let i = 0;
       setDescWords([]);
+      setDescriptionComplete(false);
+      setIsInitialized(true);
       const interval = setInterval(() => {
         setDescWords((prev) => [...prev, words[i]]);
         i++;
         if (i === words.length) {
           clearInterval(interval);
+          setDescriptionComplete(true);
           localStorage.setItem('descAnimationPlayed', 'true');
         }
       }, 120);
@@ -31,15 +38,17 @@ function App() {
     }
   }, []);
 
-  // Cards animation effect
+  // Cards animation effect - now waits for description to complete
   useEffect(() => {
+    if (!isInitialized) return;
+    
     const hasCardsPlayed = localStorage.getItem('cardsAnimationPlayed');
     if (hasCardsPlayed) {
       setVisibleCards(functions.map((_, index) => index));
-    } else {
+    } else if (descriptionComplete) {
       setVisibleCards([]);
       
-      // Start showing cards one by one after description animation
+      // Start showing cards one by one after description animation completes
       const timer = setTimeout(() => {
         let currentIndex = 0;
         const interval = setInterval(() => {
@@ -53,11 +62,11 @@ function App() {
         }, 800); // Show a new card every 800ms
         
         return () => clearInterval(interval);
-      }, 3000); // Wait 3 seconds after page load to start card animation
+      }, 1000); // Wait 1 second after description completes to start card animation
       
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, [descriptionComplete, isInitialized]);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
