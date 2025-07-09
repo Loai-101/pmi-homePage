@@ -1,38 +1,802 @@
-.App {
-  text-align: center;
+/* Custom styles for PMI Departments website */
+
+/* Apply metallic silver to body and html */
+html, body {
+  background: linear-gradient(135deg, 
+    #c0c0c0 0%, 
+    #a8a8a8 15%, 
+    #808080 30%, 
+    #696969 45%, 
+    #808080 60%, 
+    #a8a8a8 75%, 
+    #c0c0c0 100%) !important;
+  min-height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
+.dark html, .dark body {
+  background: linear-gradient(135deg, 
+    #2d2d2d 0%, 
+    #404040 15%, 
+    #555555 30%, 
+    #6b6b6b 45%, 
+    #555555 60%, 
+    #404040 75%, 
+    #2d2d2d 100%) !important;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #6b7280;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Focus styles for better accessibility */
+button:focus,
+a:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Sparkling background effect */
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1) rotate(90deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1) rotate(270deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  50% {
+    background-position: 200px 0;
+  }
+  100% {
+    background-position: -200px 0;
+  }
+}
+
+/* Metallic Silver Animation Keyframes */
+@keyframes metallicShimmer {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateX(-10px) translateY(-5px);
+  }
+  25% {
+    opacity: 0.6;
+    transform: translateX(5px) translateY(-10px);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(10px) translateY(5px);
+  }
+  75% {
+    opacity: 0.5;
+    transform: translateX(-5px) translateY(10px);
+  }
+}
+
+@keyframes lightReflection {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(0deg);
+  }
+  25% {
+    transform: translateX(0%) translateY(-50%) rotate(90deg);
+  }
+  50% {
+    transform: translateX(100%) translateY(0%) rotate(180deg);
+  }
+  75% {
+    transform: translateX(50%) translateY(100%) rotate(270deg);
+  }
+  100% {
+    transform: translateX(-100%) translateY(-100%) rotate(360deg);
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+  }
+  25% {
+    background-position: 25px 25px, -25px 25px, 25px -25px, -25px -25px;
+  }
+  50% {
+    background-position: 50px 50px, -50px 50px, 50px -50px, -50px -50px;
+  }
+  75% {
+    background-position: 25px 75px, -25px 75px, 25px -75px, -25px -75px;
+  }
+  100% {
+    background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+  }
+}
+
+/* Main Website Metallic Silver Background */
+.metallic-silver-bg {
+  position: relative;
+  background: linear-gradient(135deg, 
+    #c0c0c0 0%, 
+    #a8a8a8 15%, 
+    #808080 30%, 
+    #696969 45%, 
+    #808080 60%, 
+    #a8a8a8 75%, 
+    #c0c0c0 100%) !important;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.metallic-silver-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%),
+    linear-gradient(0deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%),
+    radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 50%);
+  animation: metallicShimmer 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.metallic-silver-bg::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: 
+    linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%),
+    linear-gradient(-45deg, transparent 30%, rgba(255, 255, 255, 0.08) 50%, transparent 70%);
+  animation: lightReflection 8s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Dark mode metallic silver */
+.dark .metallic-silver-bg {
+  background: linear-gradient(135deg, 
+    #2d2d2d 0%, 
+    #404040 15%, 
+    #555555 30%, 
+    #6b6b6b 45%, 
+    #555555 60%, 
+    #404040 75%, 
+    #2d2d2d 100%) !important;
+}
+
+.dark .metallic-silver-bg::before {
+  background: 
+    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%),
+    linear-gradient(0deg, transparent 0%, rgba(255, 255, 255, 0.03) 50%, transparent 100%),
+    radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+}
+
+.dark .metallic-silver-bg::after {
+  background: 
+    linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.06) 50%, transparent 70%),
+    linear-gradient(-45deg, transparent 30%, rgba(255, 255, 255, 0.04) 50%, transparent 70%);
+}
+
+/* Floating metallic particles for main background */
+.metallic-silver-bg {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 60% 60%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%),
+    linear-gradient(0deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+  background-size: 100px 100px, 150px 150px, 200px 200px, 250px 250px, 100% 100%, 100% 100%;
+  animation: particleFloat 20s linear infinite;
+}
+
+.dark .metallic-silver-bg {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 60% 60%, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Ensure content stays above background effects */
+.metallic-silver-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Clear text styling for better readability */
+.metallic-silver-bg h1,
+.metallic-silver-bg h2,
+.metallic-silver-bg h3,
+.metallic-silver-bg p,
+.metallic-silver-bg span,
+.metallic-silver-bg div {
+  text-shadow: none !important;
+  /* color: #1f2937 !important; */
+  font-weight: 600;
+}
+
+.dark .metallic-silver-bg h1,
+.dark .metallic-silver-bg h2,
+.dark .metallic-silver-bg h3,
+.dark .metallic-silver-bg p,
+.dark .metallic-silver-bg span,
+.dark .metallic-silver-bg div {
+  /* color: #f9fafb !important; */
+}
+
+/* Enhanced text readability without cards */
+/* .metallic-silver-bg h1,
+.metallic-silver-bg h2,
+.metallic-silver-bg h3 {
+  color: #111827 !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+
+.dark .metallic-silver-bg h1,
+.dark .metallic-silver-bg h2,
+.dark .metallic-silver-bg h3 {
+  color: #ffffff !important;
+} */
+
+/* .metallic-silver-bg p {
+  color: #374151 !important;
+  font-weight: 500 !important;
+  text-shadow: none !important;
+  line-height: 1.7;
+} */
+
+/* .dark .metallic-silver-bg p {
+  color: #e5e7eb !important;
+} */
+
+/* Metallic Silver Background Theme for Cards */
+.sparkling-bg {
+  position: relative;
+  background: linear-gradient(135deg, 
+    #e5e7eb 0%, 
+    #d1d5db 15%, 
+    #9ca3af 30%, 
+    #6b7280 45%, 
+    #9ca3af 60%, 
+    #d1d5db 75%, 
+    #e5e7eb 100%);
+  overflow: hidden;
+}
+
+/* Metallic texture overlay */
+.sparkling-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%),
+    linear-gradient(0deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%),
+    radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 50%);
+  animation: metallicShimmer 6s ease-in-out infinite;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Moving light reflection */
+.sparkling-bg::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: 
+    linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%),
+    linear-gradient(-45deg, transparent 30%, rgba(255, 255, 255, 0.08) 50%, transparent 70%);
+  animation: lightReflection 8s linear infinite;
+  pointer-events: none;
+}
+
+/* Dark mode metallic silver */
+.dark .sparkling-bg {
+  background: linear-gradient(135deg, 
+    #374151 0%, 
+    #4b5563 15%, 
+    #6b7280 30%, 
+    #9ca3af 45%, 
+    #6b7280 60%, 
+    #4b5563 75%, 
+    #374151 100%);
+}
+
+.dark .sparkling-bg::before {
+  background: 
+    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%),
+    linear-gradient(0deg, transparent 0%, rgba(255, 255, 255, 0.03) 50%, transparent 100%),
+    radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+}
+
+.dark .sparkling-bg::after {
+  background: 
+    linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.06) 50%, transparent 70%),
+    linear-gradient(-45deg, transparent 30%, rgba(255, 255, 255, 0.04) 50%, transparent 70%);
+}
+
+/* Floating metallic particles */
+.sparkling-bg {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 60% 60%, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 100px 100px, 150px 150px, 200px 200px, 250px 250px;
+  animation: particleFloat 20s linear infinite;
+}
+
+.dark .sparkling-bg {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 60% 60%, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Loading state for images */
+.image-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Print styles */
+@media print {
+  .dark {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .dark * {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* Custom Color Theme Animations and Effects */
+
+/* Blue Medical Theme */
+.blue-medical-theme {
+  background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 50%, #f0f8ff 100%);
+  border-color: #3b82f6;
+}
+
+.blue-glow-effect {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(59, 130, 246, 0.1);
+  animation: bluePulse 3s ease-in-out infinite;
+}
+
+.blue-shimmer-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.blue-shimmer-animation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
+  animation: blueShimmer 2.5s infinite;
+  z-index: 1;
+}
+
+@keyframes bluePulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(59, 130, 246, 0.1); }
+  50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(59, 130, 246, 0.2); }
+}
+
+@keyframes blueShimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Purple IT Solutions Theme */
+.purple-it-theme {
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 50%, #faf5ff 100%);
+  border-color: #9333ea;
+}
+
+.purple-glow-effect {
+  box-shadow: 0 0 20px rgba(147, 51, 234, 0.3), 0 0 40px rgba(147, 51, 234, 0.1);
+  animation: purplePulse 3s ease-in-out infinite;
+}
+
+.purple-shimmer-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.purple-shimmer-animation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(147, 51, 234, 0.2), transparent);
+  animation: purpleShimmer 2.5s infinite;
+  z-index: 1;
+}
+
+@keyframes purplePulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(147, 51, 234, 0.3), 0 0 40px rgba(147, 51, 234, 0.1); }
+  50% { box-shadow: 0 0 30px rgba(147, 51, 234, 0.5), 0 0 60px rgba(147, 51, 234, 0.2); }
+}
+
+@keyframes purpleShimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Green Health Care Theme */
+.green-health-theme {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #f0fdf4 100%);
+  border-color: #16a34a;
+}
+
+.green-glow-effect {
+  box-shadow: 0 0 20px rgba(22, 163, 74, 0.3), 0 0 40px rgba(22, 163, 74, 0.1);
+  animation: greenPulse 3s ease-in-out infinite;
+}
+
+.green-shimmer-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.green-shimmer-animation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(22, 163, 74, 0.2), transparent);
+  animation: greenShimmer 2.5s infinite;
+  z-index: 1;
+}
+
+@keyframes greenPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(22, 163, 74, 0.3), 0 0 40px rgba(22, 163, 74, 0.1); }
+  50% { box-shadow: 0 0 30px rgba(22, 163, 74, 0.5), 0 0 60px rgba(22, 163, 74, 0.2); }
+}
+
+@keyframes greenShimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Brown Advertising Theme */
+.brown-advertising-theme {
+  background: linear-gradient(135deg, #fefce8 0%, #fef3c7 50%, #fefce8 100%);
+  border-color: #d97706;
+}
+
+.brown-glow-effect {
+  box-shadow: 0 0 20px rgba(217, 119, 6, 0.3), 0 0 40px rgba(217, 119, 6, 0.1);
+  animation: brownPulse 3s ease-in-out infinite;
+}
+
+.brown-shimmer-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.brown-shimmer-animation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.2), transparent);
+  animation: brownShimmer 2.5s infinite;
+  z-index: 1;
+}
+
+@keyframes brownPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(217, 119, 6, 0.3), 0 0 40px rgba(217, 119, 6, 0.1); }
+  50% { box-shadow: 0 0 30px rgba(217, 119, 6, 0.5), 0 0 60px rgba(217, 119, 6, 0.2); }
+}
+
+@keyframes brownShimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Dark mode adjustments */
+.dark .blue-medical-theme {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1e3a8a 100%);
+}
+
+.dark .purple-it-theme {
+  background: linear-gradient(135deg, #581c87 0%, #7c3aed 50%, #581c87 100%);
+}
+
+.dark .green-health-theme {
+  background: linear-gradient(135deg, #14532d 0%, #16a34a 50%, #14532d 100%);
+}
+
+.dark .brown-advertising-theme {
+  background: linear-gradient(135deg, #92400e 0%, #d97706 50%, #92400e 100%);
+}
+
+/* Enhanced hover effects */
+.blue-medical-theme:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.purple-it-theme:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(147, 51, 234, 0.4);
+}
+
+.green-health-theme:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(22, 163, 74, 0.4);
+}
+
+.brown-advertising-theme:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4);
+}
+
+/* Sparkle effects for each theme */
+.blue-medical-theme::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 4px;
+  height: 4px;
+  background: #3b82f6;
+  border-radius: 50%;
+  animation: blueSparkle 2s infinite;
+}
+
+.purple-it-theme::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 4px;
+  height: 4px;
+  background: #9333ea;
+  border-radius: 50%;
+  animation: purpleSparkle 2s infinite;
+}
+
+.green-health-theme::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 4px;
+  height: 4px;
+  background: #16a34a;
+  border-radius: 50%;
+  animation: greenSparkle 2s infinite;
+}
+
+.brown-advertising-theme::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 4px;
+  height: 4px;
+  background: #d97706;
+  border-radius: 50%;
+  animation: brownSparkle 2s infinite;
+}
+
+@keyframes blueSparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes purpleSparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes greenSparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes brownSparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+/* High-contrast text for metallic background */
+/* Remove forced heading color so inline style can show logo color */
+/* .metallic-silver-bg h1,
+.metallic-silver-bg h2,
+.metallic-silver-bg h3 {
+  color: #111 !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+}
+
+.dark .metallic-silver-bg h1,
+.dark .metallic-silver-bg h2,
+.dark .metallic-silver-bg h3 {
+  color: #fff !important;
+} */
+
+.metallic-silver-bg p {
+  color: #222 !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  text-shadow: none !important;
+}
+
+.dark .metallic-silver-bg p {
+  color: #fff !important;
+}
+
+.function-name-blue { color: #6b8fc9 !important; text-shadow: 0 0 8px #b3c6e6, 0 0 2px #6b8fc9; }
+.function-name-purple { color: #4b478a !important; text-shadow: 0 0 8px #b3b0d6, 0 0 2px #4b478a; }
+.function-name-green { color: #6bbfa3 !important; text-shadow: 0 0 8px #b2e2d2, 0 0 2px #6bbfa3; }
+.function-name-brown { color: #8d6e63 !important; text-shadow: 0 0 8px #d7c2b7, 0 0 2px #8d6e63; }
+
+.navbar-gradient {
+  background: linear-gradient(90deg, #6b8fc9 0%, #4b478a 33%, #6bbfa3 66%, #8d6e63 100%);
+  transition: background 0.5s;
+}
+
+.dark .navbar-gradient {
+  background: linear-gradient(90deg, #4666a3 0%, #322e5c 33%, #3e7c6a 66%, #5c463b 100%);
+}
+
+.desc-blue {
+  color: #6b8fc9 !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+#desc-blue {
+  color: #fff !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.10) !important;
+}
+
+.desc-word {
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.hidden-word {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.navbar-functions-animate {
+  animation: fadeInUpNavbar 0.7s ease-out;
+}
+
+/* Card sizing consistency */
+.function-card-container {
+  height: 320px; /* h-80 = 320px */
+  min-height: 320px;
+  max-height: 320px;
+}
+
+.function-card-title {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.2;
+  max-width: 100%;
+}
+
+/* Ensure grid items are the same size */
+.grid > div {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes fadeInUpNavbar {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }

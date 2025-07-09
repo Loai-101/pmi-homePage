@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+# PMI Functions Showcase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive single-page React application showcasing the core functions and methodologies of the Project Management Institute (PMI).
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### 🎯 Core Functionality
+- **Interactive Function Cards**: Clickable cards displaying PMI functions with logos and hover effects
+- **Responsive Design**: Optimized for mobile, tablet, and desktop viewing
+- **Dark/Light Theme Toggle**: User-friendly theme switching with smooth transitions
+- **External Links**: Direct links to PMI learning resources (opens in new tab)
 
-### `npm start`
+### 🎨 Design & UX
+- **Modern UI**: Clean, professional design using Tailwind CSS
+- **Smooth Animations**: Hover effects, transitions, and loading states
+- **Accessibility**: Keyboard navigation, screen reader support, and focus indicators
+- **Loading States**: Skeleton loading for images with fallback placeholders
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 📱 Responsive Layout
+- **Top Section**: Grid layout of function cards (1-4 columns based on screen size)
+- **Bottom Section**: Detailed function information with full descriptions
+- **Mobile-First**: Optimized for all device sizes
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technology Stack
 
-### `npm test`
+- **React 19.1.0** - Modern React with functional components and hooks
+- **Tailwind CSS 3.4.17** - Utility-first CSS framework
+- **PostCSS** - CSS processing
+- **JavaScript ES6+** - Modern JavaScript features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Structure
 
-### `npm run build`
+```
+src/
+├── components/
+│   └── FunctionCard.js      # Reusable function card component
+├── data/
+│   └── functions.js         # Function data and information
+├── App.js                   # Main application component
+├── App.css                  # Custom styles and animations
+└── index.css               # Tailwind CSS imports
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd pmi-departments
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies:
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Start the development server:
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Available Scripts
 
-## Learn More
+- `npm start` - Runs the app in development mode
+- `npm build` - Builds the app for production
+- `npm test` - Launches the test runner
+- `npm eject` - Ejects from Create React App (not recommended)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Function Data
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The application includes 4 core PMI functions:
 
-### Code Splitting
+1. **Project Management** - Core project management methodologies and best practices
+2. **Program Management** - Coordinating multiple related projects for strategic objectives
+3. **Portfolio Management** - Managing collections of projects and programs for organizational value
+4. **Agile & Adaptive Management** - Flexible approaches for dynamic environments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Customization
 
-### Analyzing the Bundle Size
+### Adding New Functions
+To add new functions, edit `src/data/functions.js`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```javascript
+{
+  id: 5,
+  name: "Function Name",
+  shortName: "Short Name",
+  description: "Function description...",
+  logo: "logo-url.png",
+  officialLink: "https://function-resource.com",
+  category: "Category"
+}
+```
 
-### Making a Progressive Web App
+### Styling
+- Main styles are in `src/App.css`
+- Component-specific styles use Tailwind CSS classes
+- Theme colors can be customized in `tailwind.config.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Browser Support
 
-### Advanced Configuration
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributing
 
-### Deployment
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License
 
-### `npm run build` fails to minify
+This project is for educational and showcase purposes. PMI logos and branding are property of the Project Management Institute.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgments
+
+- Project Management Institute (PMI) for function information and resources
+- Tailwind CSS for the styling framework
+- React team for the amazing framework
