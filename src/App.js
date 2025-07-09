@@ -22,14 +22,17 @@ function App() {
     
     // Start typing animation after a brief delay
     const startDelay = setTimeout(() => {
-      const interval = setInterval(() => {
-        setDescWords((prev) => [...prev, words[i]]);
-        i++;
-        if (i === words.length) {
-          clearInterval(interval);
-          setDescriptionComplete(true);
-        }
-              }, 200); // 200ms per word for smoother typing effect
+              const interval = setInterval(() => {
+          setDescWords((prev) => [...prev, words[i]]);
+          i++;
+          if (i === words.length) {
+            clearInterval(interval);
+            // Add a small delay before marking as complete for smoother transition
+            setTimeout(() => {
+              setDescriptionComplete(true);
+            }, 300);
+          }
+        }, 150); // 150ms per word for smoother typing effect
       
       return () => clearInterval(interval);
     }, 800); // 800ms delay before starting typing
