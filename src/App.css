@@ -856,25 +856,28 @@ a:focus {
 /* Mobile optimizations for word animation */
 @media (max-width: 768px) {
   .desc-word {
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
   }
   
   .hidden-word {
-    transform: translateY(10px) scale(0.99);
+    opacity: 0;
+    transform: translateY(8px);
   }
   
   .word-animate {
-    animation: wordFadeInMobile 0.5s ease-out forwards;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: wordFadeInMobile 0.4s ease-out forwards;
   }
   
   @keyframes wordFadeInMobile {
     0% {
       opacity: 0;
-      transform: translateY(10px) scale(0.99);
+      transform: translateY(8px);
     }
     100% {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
     }
   }
 }

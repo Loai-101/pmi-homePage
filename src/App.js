@@ -26,13 +26,25 @@ function App() {
         if (currentIndex < words.length) {
           setVisibleDescWords(prev => [...prev, currentIndex]);
           currentIndex++;
-          setTimeout(animateWords, 100); // 100ms between each word
+          // Faster timing for mobile, slower for desktop
+          const delay = window.innerWidth <= 768 ? 80 : 100;
+          setTimeout(animateWords, delay);
         } else {
+          // Ensure all words are visible and mark as complete
+          setVisibleDescWords(words.map((_, i) => i));
           setDescriptionComplete(true);
         }
       };
       animateWords();
-    }, 800); // 800ms initial delay
+      
+      // Fallback: ensure all words are visible after 5 seconds
+      const fallback = setTimeout(() => {
+        setVisibleDescWords(words.map((_, i) => i));
+        setDescriptionComplete(true);
+      }, 5000);
+      
+      return () => clearTimeout(fallback);
+    }, 600); // Reduced initial delay for mobile
     
     return () => clearTimeout(startDelay);
   }, []);
