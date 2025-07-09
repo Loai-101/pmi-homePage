@@ -14,12 +14,17 @@ function App() {
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
+    const hasVisited = localStorage.getItem('hasVisitedBefore');
     const hasPlayed = localStorage.getItem('descAnimationPlayed');
-    if (hasPlayed) {
+    
+    if (hasVisited && hasPlayed) {
+      // User has visited before and animations have played - show everything immediately
       setDescWords(DESCRIPTION.split(' '));
       setDescriptionComplete(true);
       setIsInitialized(true);
-    } else {
+    } else if (!hasVisited) {
+      // First time visitor - play animations
+      localStorage.setItem('hasVisitedBefore', 'true');
       const words = DESCRIPTION.split(' ');
       let i = 0;
       setDescWords([]);
@@ -42,6 +47,11 @@ function App() {
       }, 800); // 800ms delay before starting typing
       
       return () => clearTimeout(startDelay);
+    } else {
+      // User has visited before but animations haven't played (edge case) - show everything immediately
+      setDescWords(DESCRIPTION.split(' '));
+      setDescriptionComplete(true);
+      setIsInitialized(true);
     }
   }, []);
 
@@ -49,10 +59,14 @@ function App() {
   useEffect(() => {
     if (!isInitialized) return;
     
+    const hasVisited = localStorage.getItem('hasVisitedBefore');
     const hasCardsPlayed = localStorage.getItem('cardsAnimationPlayed');
-    if (hasCardsPlayed) {
+    
+    if (hasVisited && hasCardsPlayed) {
+      // User has visited before and animations have played - show all cards immediately
       setVisibleCards(functions.map((_, index) => index));
-    } else if (descriptionComplete) {
+    } else if (!hasVisited && descriptionComplete) {
+      // First time visitor - play card animations
       setVisibleCards([]);
       
       // Start showing cards one by one after description animation completes
@@ -72,6 +86,9 @@ function App() {
       }, 1500); // Wait 1.5 seconds after description completes to start card animation
       
       return () => clearTimeout(timer);
+    } else if (hasVisited && !hasCardsPlayed) {
+      // User has visited before but card animations haven't played (edge case) - show all cards immediately
+      setVisibleCards(functions.map((_, index) => index));
     }
   }, [descriptionComplete, isInitialized]);
 
