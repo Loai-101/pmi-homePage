@@ -67,10 +67,10 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
 
   if (isDetailView) {
     return (
-      <div className={`sparkling-bg rounded-xl shadow-lg p-8 theme-transition animate-fade-in-up border border-gray-300 dark:border-gray-600 ${themeStyles.cardClass} ${themeStyles.glowClass}`}>
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-6 relative z-10">
+      <div className={`sparkling-bg rounded-xl shadow-lg p-4 sm:p-6 lg:p-8 theme-transition animate-fade-in-up border border-gray-300 dark:border-gray-600 ${themeStyles.cardClass} ${themeStyles.glowClass}`}>
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-4 sm:gap-6 relative z-10">
           <div className="flex-shrink-0">
-                    <div className={`w-48 h-48 ${!imageLoaded ? 'image-loading' : ''} ${themeStyles.shimmerClass}`}>
+            <div className={`w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 ${!imageLoaded ? 'image-loading' : ''} ${themeStyles.shimmerClass}`}>
           <img
             src={imageError ? 'https://via.placeholder.com/192x192/1e40af/ffffff?text=PMI' : pmFunction.logo}
             alt={`${pmFunction.name} logo`}
@@ -81,10 +81,10 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
         </div>
           </div>
           <div className="flex-1 text-center md:text-left">
-            <h3 className={`text-3xl font-black mb-4 tracking-wide uppercase ${themeStyles.nameClass}`}>
+            <h3 className={`text-xl sm:text-2xl lg:text-3xl font-black mb-3 sm:mb-4 tracking-wide uppercase ${themeStyles.nameClass}`}>
               {pmFunction.name}
             </h3>
-            <p className="leading-relaxed text-lg">
+            <p className="leading-relaxed text-sm sm:text-base lg:text-lg">
               {pmFunction.description}
             </p>
           </div>
@@ -95,7 +95,7 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
 
   return (
     <div
-      className={`relative sparkling-bg rounded-xl shadow-lg overflow-hidden cursor-pointer card-hover theme-transition animate-fade-in-up border border-gray-300 dark:border-gray-600 w-64 h-64 ${themeStyles.cardClass} ${themeStyles.glowClass}`}
+      className={`relative sparkling-bg rounded-xl shadow-lg overflow-hidden cursor-pointer card-hover theme-transition animate-fade-in-up border border-gray-300 dark:border-gray-600 w-full h-48 sm:h-56 md:h-64 ${themeStyles.cardClass} ${themeStyles.glowClass}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleCardClick}
@@ -109,8 +109,8 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
       role="button"
       aria-label={`${pmFunction.name} - Click to learn more`}
     >
-      <div className="p-6 relative z-10 h-full flex flex-col items-center justify-center">
-        <div className={`w-32 h-32 mb-4 ${!imageLoaded ? 'image-loading' : ''} ${themeStyles.shimmerClass}`}>
+      <div className="p-4 sm:p-6 relative z-10 h-full flex flex-col items-center justify-center">
+        <div className={`w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mb-3 sm:mb-4 ${!imageLoaded ? 'image-loading' : ''} ${themeStyles.shimmerClass}`}>
           <img
             src={imageError ? 'https://via.placeholder.com/128x128/1e40af/ffffff?text=PMI' : pmFunction.logo}
             alt={`${pmFunction.shortName} logo`}
@@ -120,7 +120,7 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
           />
         </div>
         
-        <h3 className={`text-lg font-black tracking-wide uppercase ${themeStyles.nameClass} function-card-title text-center`}>
+        <h3 className={`text-sm sm:text-base md:text-lg font-black tracking-wide uppercase ${themeStyles.nameClass} function-card-title text-center`}>
           {pmFunction.name}
         </h3>
         

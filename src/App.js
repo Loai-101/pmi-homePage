@@ -55,7 +55,7 @@ function App() {
         for (let i = 1; i < functions.length; i++) {
           setTimeout(() => {
             setVisibleCards(prev => [...prev, i]);
-          }, i * 300); // 300ms delay between each card
+          }, i * 200); // 200ms delay between each card for better mobile performance
         }
       }, 1500); // Wait 1.5 seconds after description completes to start card animation
       
@@ -84,13 +84,13 @@ function App() {
               <img 
                 src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751977454/PMI_Circile_Gray_wiu9mh.png" 
                 alt="PMI Logo" 
-                className="h-8 w-auto"
+                className="h-6 sm:h-8 w-auto"
               />
-              <span className="ml-3 text-xl font-extrabold text-white tracking-wide navbar-functions-animate" style={{textShadow: '0 2px 8px rgba(0,0,0,0.18)'}}>
+              <span className="ml-2 sm:ml-3 text-lg sm:text-xl font-extrabold text-white tracking-wide navbar-functions-animate" style={{textShadow: '0 2px 8px rgba(0,0,0,0.18)'}}>
                 Functions
               </span>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 sm:space-x-4">
               <div className="relative group">
                 <a href="tel:13676757" className="hover:brightness-125" title="Call">
                   <FaPhoneAlt className="w-5 h-5" style={{color: '#22c55e'}} />
@@ -148,17 +148,17 @@ function App() {
         {/* Top Section - Functions Grid */}
         <section className="mb-16">
           <div className="text-center mb-12">
-            <div className="flex items-center justify-center mb-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center mb-4 gap-2 sm:gap-4">
               <img 
                 src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751977454/PMI_Circile_Gray_wiu9mh.png" 
                 alt="PMI Logo" 
-                className="h-16 w-auto mr-4"
+                className="h-12 sm:h-16 w-auto"
               />
-              <h2 className="text-4xl font-extrabold text-white tracking-wide navbar-functions-animate" style={{textShadow: '0 2px 8px rgba(0,0,0,0.18)'}}>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-wide navbar-functions-animate text-center sm:text-left" style={{textShadow: '0 2px 8px rgba(0,0,0,0.18)'}}>
                 PMI Functions
               </h2>
             </div>
-            <p className="text-xl mb-4">
+            <p className="text-base sm:text-lg lg:text-xl mb-4 px-4 sm:px-0">
               <span id="desc-blue">
                 {DESCRIPTION.split(' ').map((word, idx) => (
                   <span
@@ -171,14 +171,14 @@ function App() {
               </span>
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
             {functions.map((pmFunction, index) => (
               <div
                 key={pmFunction.id}
-                className={`h-full transition-all duration-300 ${
+                className={`h-full transition-opacity duration-200 ${
                   visibleCards.includes(index) 
                     ? 'card-animate-in' 
-                    : 'opacity-0 transform translate-y-8'
+                    : 'opacity-0'
                 }`}
               >
                 <FunctionCard 
@@ -193,7 +193,7 @@ function App() {
         {/* Bottom Section - Function Description */}
         <section>
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4" style={{textShadow: '0 2px 8px rgba(0,0,0,0.18)'}}>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4" style={{textShadow: '0 2px 8px rgba(0,0,0,0.18)'}}>
               Function Description
             </h2>
           </div>
