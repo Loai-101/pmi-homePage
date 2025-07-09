@@ -70,7 +70,7 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
       <div className={`sparkling-bg rounded-xl shadow-lg p-8 theme-transition animate-fade-in-up border border-gray-300 dark:border-gray-600 ${themeStyles.cardClass} ${themeStyles.glowClass}`}>
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6 relative z-10">
           <div className="flex-shrink-0">
-            <div className={`w-48 h-48 rounded-xl overflow-hidden bg-white dark:bg-gray-800 p-6 shadow-md ${!imageLoaded ? 'image-loading' : ''} ${themeStyles.shimmerClass}`}>
+            <div className={`w-48 h-48 rounded-full overflow-hidden bg-white dark:bg-gray-800 p-6 shadow-md ${!imageLoaded ? 'image-loading' : ''} ${themeStyles.shimmerClass}`}>
               <img
                 src={imageError ? 'https://via.placeholder.com/192x192/1e40af/ffffff?text=PMI' : pmFunction.logo}
                 alt={`${pmFunction.name} logo`}
@@ -95,7 +95,7 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
 
   return (
     <div
-      className={`relative sparkling-bg rounded-xl shadow-lg overflow-hidden cursor-pointer card-hover theme-transition animate-fade-in-up border border-gray-300 dark:border-gray-600 function-card-container ${themeStyles.cardClass} ${themeStyles.glowClass}`}
+      className={`relative sparkling-bg rounded-xl shadow-lg overflow-hidden cursor-pointer card-hover theme-transition animate-fade-in-up border border-gray-300 dark:border-gray-600 w-64 h-64 ${themeStyles.cardClass} ${themeStyles.glowClass}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleCardClick}
@@ -109,33 +109,22 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
       role="button"
       aria-label={`${pmFunction.name} - Click to learn more`}
     >
-      <div className="p-6 relative z-10 h-full flex flex-col">
-        <div className="flex flex-col items-center text-center flex-1">
-          <div className="mb-4 flex-shrink-0">
-            <div className={`w-40 h-40 rounded-xl overflow-hidden bg-white dark:bg-gray-800 p-4 shadow-md ${!imageLoaded ? 'image-loading' : ''} ${themeStyles.shimmerClass}`}>
-              <img
-                src={imageError ? 'https://via.placeholder.com/160x160/1e40af/ffffff?text=PMI' : pmFunction.logo}
-                alt={`${pmFunction.shortName} logo`}
-                className="w-full h-full object-contain"
-                onLoad={handleImageLoad}
-                onError={handleImageError}
-              />
-            </div>
-          </div>
-          
-          <div className="transition-all duration-300 flex-1 flex items-center justify-center px-2">
-            <h3 className={`text-xl font-black tracking-wide uppercase ${themeStyles.nameClass} function-card-title`}>
-              {pmFunction.name}
-            </h3>
-          </div>
-          
-          <div className={`absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="text-white text-center p-4">
-              <p className="text-sm font-medium">Click to learn more</p>
-              <p className="text-xs opacity-90">Opens in new tab</p>
-            </div>
-          </div>
+      <div className="p-6 relative z-10 h-full flex flex-col items-center justify-center">
+        <div className={`w-32 h-32 rounded-full overflow-hidden bg-white dark:bg-gray-800 p-3 shadow-md mb-4 ${!imageLoaded ? 'image-loading' : ''} ${themeStyles.shimmerClass}`}>
+          <img
+            src={imageError ? 'https://via.placeholder.com/128x128/1e40af/ffffff?text=PMI' : pmFunction.logo}
+            alt={`${pmFunction.shortName} logo`}
+            className="w-full h-full object-contain"
+            onLoad={handleImageLoad}
+            onError={handleImageError}
+          />
         </div>
+        
+        <h3 className={`text-lg font-black tracking-wide uppercase ${themeStyles.nameClass} function-card-title text-center`}>
+          {pmFunction.name}
+        </h3>
+        
+        
       </div>
       
       {/* Focus indicator for accessibility */}

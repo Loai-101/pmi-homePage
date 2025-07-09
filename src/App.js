@@ -25,16 +25,23 @@ function App() {
       setDescWords([]);
       setDescriptionComplete(false);
       setIsInitialized(true);
-      const interval = setInterval(() => {
-        setDescWords((prev) => [...prev, words[i]]);
-        i++;
-        if (i === words.length) {
-          clearInterval(interval);
-          setDescriptionComplete(true);
-          localStorage.setItem('descAnimationPlayed', 'true');
-        }
-      }, 120);
-      return () => clearInterval(interval);
+      
+      // Start typing animation after a brief delay
+      const startDelay = setTimeout(() => {
+        const interval = setInterval(() => {
+          setDescWords((prev) => [...prev, words[i]]);
+          i++;
+          if (i === words.length) {
+            clearInterval(interval);
+            setDescriptionComplete(true);
+            localStorage.setItem('descAnimationPlayed', 'true');
+          }
+        }, 300); // 300ms per word for smooth typing effect
+        
+        return () => clearInterval(interval);
+      }, 800); // 800ms delay before starting typing
+      
+      return () => clearTimeout(startDelay);
     }
   }, []);
 
@@ -59,10 +66,10 @@ function App() {
             clearInterval(interval);
             localStorage.setItem('cardsAnimationPlayed', 'true');
           }
-        }, 800); // Show a new card every 800ms
+        }, 1000); // Show a new card every 1000ms for slower sequence
         
         return () => clearInterval(interval);
-      }, 1000); // Wait 1 second after description completes to start card animation
+      }, 1500); // Wait 1.5 seconds after description completes to start card animation
       
       return () => clearTimeout(timer);
     }
@@ -153,15 +160,22 @@ function App() {
         {/* Top Section - Functions Grid */}
         <section className="mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold text-white tracking-wide mb-4 navbar-functions-animate" style={{textShadow: '0 2px 8px rgba(0,0,0,0.18)'}}>
-              PMI Functions
-            </h2>
+            <div className="flex items-center justify-center mb-4">
+              <img 
+                src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751977454/PMI_Circile_Gray_wiu9mh.png" 
+                alt="PMI Logo" 
+                className="h-16 w-auto mr-4"
+              />
+              <h2 className="text-4xl font-extrabold text-white tracking-wide navbar-functions-animate" style={{textShadow: '0 2px 8px rgba(0,0,0,0.18)'}}>
+                PMI Functions
+              </h2>
+            </div>
             <p className="text-xl mb-4">
               <span id="desc-blue">
                 {DESCRIPTION.split(' ').map((word, idx) => (
                   <span
                     key={idx}
-                    className={`desc-word${idx >= descWords.length ? ' hidden-word' : ''}`}
+                    className={`desc-word${idx >= descWords.length ? ' hidden-word' : ''}${idx === descWords.length - 1 && descWords.length > 0 ? ' typing' : ''}`}
                   >
                     {word}
                   </span>
@@ -173,13 +187,13 @@ function App() {
             {functions.map((pmFunction, index) => (
               <div
                 key={pmFunction.id}
-                className={`transition-all duration-700 ease-out h-full ${
+                className={`h-full ${
                   visibleCards.includes(index) 
-                    ? 'opacity-100 transform translate-y-0' 
+                    ? 'card-animate-in' 
                     : 'opacity-0 transform translate-y-8'
                 }`}
                 style={{
-                  transitionDelay: visibleCards.includes(index) ? `${index * 200}ms` : '0ms'
+                  animationDelay: visibleCards.includes(index) ? `${index * 300}ms` : '0ms'
                 }}
               >
                 <FunctionCard 
@@ -211,14 +225,14 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-8">
+      <footer className="navbar-gradient border-t border-gray-200 dark:border-gray-700 mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="text-center">
             <p className="text-gray-600 dark:text-gray-400">
-              © 2021 All rights reserved.
+              <span className='text-white'>© 2021 All rights reserved.</span>
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
-              This is a showcase website for PMI functions and methodologies.
+              <span className='text-white'>This is a showcase website for PMI functions and methodologies.</span>
             </p>
           </div>
         </div>
