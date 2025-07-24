@@ -1,0 +1,103 @@
+/* ========================================
+   HEADER COMPONENT STYLES
+   ======================================== */
+
+/* PMI company name styling */
+.pmi-company-name {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+/* Social media icon colors */
+.social-icon-phone {
+  color: #22c55e;
+}
+
+.social-icon-whatsapp {
+  color: #25D366;
+}
+
+.social-icon-instagram {
+  color: #E1306C;
+}
+
+.social-icon-email {
+  color: #3b82f6;
+}
+
+/* Tooltip styling */
+.social-tooltip {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -2rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  z-index: 50;
+}
+
+.social-tooltip:hover {
+  opacity: 1;
+}
+
+/* Mobile menu button styling */
+.mobile-menu-button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: rgb(243 244 246);
+  transition: background-color 0.2s ease;
+}
+
+.mobile-menu-button:hover {
+  background: rgb(229 231 235);
+}
+
+.dark .mobile-menu-button {
+  background: rgb(55 65 81);
+}
+
+.dark .mobile-menu-button:hover {
+  background: rgb(75 85 99);
+}
+
+/* Mobile navigation styling */
+.mobile-nav-container {
+  padding: 1rem 0;
+  border-top: 1px solid rgb(229 231 235);
+}
+
+.dark .mobile-nav-container {
+  border-top: 1px solid rgb(55 65 81);
+}
+
+.mobile-nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobile-nav-link {
+  color: white;
+  transition: color 0.2s ease;
+  font-weight: 500;
+}
+
+.mobile-nav-link:hover {
+  color: rgb(229 231 235);
+}
+
+/* Responsive design */
+@media (min-width: 768px) {
+  .mobile-menu-button,
+  .mobile-nav-container,
+  .mobile-nav-menu,
+  .mobile-nav-link {
+    display: none;
+  }
+} 

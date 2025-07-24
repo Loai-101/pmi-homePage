@@ -1,15 +1,15 @@
 /* Custom styles for PMI Departments website */
 
-/* Apply metallic silver to body and html */
+/* Apply metallic white to body and html */
 html, body {
   background: linear-gradient(135deg, 
-    #c0c0c0 0%, 
-    #a8a8a8 15%, 
-    #808080 30%, 
-    #696969 45%, 
-    #808080 60%, 
-    #a8a8a8 75%, 
-    #c0c0c0 100%) !important;
+    #ffffff 0%, 
+    #f8f8f8 15%, 
+    #f0f0f0 30%, 
+    #e8e8e8 45%, 
+    #f0f0f0 60%, 
+    #f8f8f8 75%, 
+    #ffffff 100%) !important;
   min-height: 100vh;
 }
 
@@ -230,17 +230,17 @@ a:focus {
   }
 }
 
-/* Main Website Metallic Silver Background */
+/* Main Website Metallic White Background */
 .metallic-silver-bg {
   position: relative;
   background: linear-gradient(135deg, 
-    #c0c0c0 0%, 
-    #a8a8a8 15%, 
-    #808080 30%, 
-    #696969 45%, 
-    #808080 60%, 
-    #a8a8a8 75%, 
-    #c0c0c0 100%) !important;
+    #ffffff 0%, 
+    #f8f8f8 15%, 
+    #f0f0f0 30%, 
+    #e8e8e8 45%, 
+    #f0f0f0 60%, 
+    #f8f8f8 75%, 
+    #ffffff 100%) !important;
   overflow: hidden;
   min-height: 100vh;
 }
@@ -338,7 +338,7 @@ a:focus {
 .metallic-silver-bg span,
 .metallic-silver-bg div {
   text-shadow: none !important;
-  /* color: #1f2937 !important; */
+  color: #1f2937 !important;
   font-weight: 600;
 }
 
@@ -366,16 +366,16 @@ a:focus {
   color: #ffffff !important;
 } */
 
-/* .metallic-silver-bg p {
+.metallic-silver-bg p {
   color: #374151 !important;
   font-weight: 500 !important;
   text-shadow: none !important;
   line-height: 1.7;
-} */
+}
 
-/* .dark .metallic-silver-bg p {
+.dark .metallic-silver-bg p {
   color: #e5e7eb !important;
-} */
+}
 
 /* Metallic Silver Background Theme for Cards */
 .sparkling-bg {
@@ -785,10 +785,71 @@ a:focus {
   color: #fff !important;
 }
 
-.function-name-blue { color: #6b8fc9 !important; text-shadow: 0 0 8px #b3c6e6, 0 0 2px #6b8fc9; }
-.function-name-purple { color: #4b478a !important; text-shadow: 0 0 8px #b3b0d6, 0 0 2px #4b478a; }
-.function-name-green { color: #6bbfa3 !important; text-shadow: 0 0 8px #b2e2d2, 0 0 2px #6bbfa3; }
-.function-name-brown { color: #8d6e63 !important; text-shadow: 0 0 8px #d7c2b7, 0 0 2px #8d6e63; }
+/* Function name theme colors - enhanced specificity */
+.function-name-blue { 
+  color: #6b8fc9 !important; 
+  text-shadow: 0 0 8px #b3c6e6, 0 0 2px #6b8fc9 !important;
+  font-weight: 900 !important;
+}
+.function-name-purple { 
+  color: #4b478a !important; 
+  text-shadow: 0 0 8px #b3b0d6, 0 0 2px #4b478a !important;
+  font-weight: 900 !important;
+}
+.function-name-green { 
+  color: #6bbfa3 !important; 
+  text-shadow: 0 0 8px #b2e2d2, 0 0 2px #6bbfa3 !important;
+  font-weight: 900 !important;
+}
+.function-name-brown { 
+  color: #8d6e63 !important; 
+  text-shadow: 0 0 8px #d7c2b7, 0 0 2px #8d6e63 !important;
+  font-weight: 900 !important;
+}
+
+/* Additional specificity for card titles */
+.function-card-title.function-name-blue { 
+  color: #6b8fc9 !important; 
+  text-shadow: 0 0 8px #b3c6e6, 0 0 2px #6b8fc9 !important;
+}
+.function-card-title.function-name-purple { 
+  color: #4b478a !important; 
+  text-shadow: 0 0 8px #b3b0d6, 0 0 2px #4b478a !important;
+}
+.function-card-title.function-name-green { 
+  color: #6bbfa3 !important; 
+  text-shadow: 0 0 8px #b2e2d2, 0 0 2px #6bbfa3 !important;
+}
+.function-card-title.function-name-brown { 
+  color: #8d6e63 !important; 
+  text-shadow: 0 0 8px #d7c2b7, 0 0 2px #8d6e63 !important;
+}
+
+/* Themed button styles for hover overlay */
+.blue-button-theme { 
+  color: #ffffff !important; 
+  background: rgba(107, 143, 201, 0.9) !important; 
+  border: 2px solid #6b8fc9 !important;
+  text-shadow: 0 0 8px #b3c6e6, 0 0 2px #6b8fc9 !important;
+}
+.purple-button-theme { 
+  color: #ffffff !important; 
+  background: rgba(75, 71, 138, 0.9) !important; 
+  border: 2px solid #4b478a !important;
+  text-shadow: 0 0 8px #b3b0d6, 0 0 2px #4b478a !important;
+}
+.green-button-theme { 
+  color: #ffffff !important; 
+  background: rgba(107, 191, 163, 0.9) !important; 
+  border: 2px solid #6bbfa3 !important;
+  text-shadow: 0 0 8px #b2e2d2, 0 0 2px #6bbfa3 !important;
+}
+.brown-button-theme { 
+  color: #ffffff !important; 
+  background: rgba(141, 110, 99, 0.9) !important; 
+  border: 2px solid #8d6e63 !important;
+  text-shadow: 0 0 8px #d7c2b7, 0 0 2px #8d6e63 !important;
+}
 
 .navbar-gradient {
   background: linear-gradient(90deg, #6b8fc9 0%, #4b478a 33%, #6bbfa3 66%, #8d6e63 100%);

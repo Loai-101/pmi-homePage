@@ -1,0 +1,247 @@
+/* ========================================
+   TEAM PAGE STYLES
+   ======================================== */
+
+/* Team page specific background */
+.team-page {
+  min-height: 100vh;
+  transition: colors 0.3s ease;
+  background: linear-gradient(135deg, 
+    #ffffff 0%, 
+    #f8f8f8 15%, 
+    #f0f0f0 30%, 
+    #e8e8e8 45%, 
+    #f0f0f0 60%, 
+    #f8f8f8 75%, 
+    #ffffff 100%);
+}
+
+/* Team page text colors for white background */
+.team-page h1,
+.team-page h2,
+.team-page h3,
+.team-page h4,
+.team-page h5,
+.team-page h6 {
+  color: #1f2937 !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.team-page p {
+  color: #374151 !important;
+  font-weight: 500;
+  text-shadow: none;
+  line-height: 1.7;
+}
+
+/* Team header section */
+.team-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.team-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+
+.team-logo {
+  height: 3rem;
+  width: auto;
+}
+
+@media (min-width: 640px) {
+  .team-logo {
+    height: 4rem;
+  }
+  
+  .team-title {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
+.team-heading {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1f2937;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .team-heading {
+    font-size: 1.875rem;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-heading {
+    font-size: 2.25rem;
+  }
+}
+
+/* Team description */
+.team-description {
+  font-size: 1.125rem;
+  color: #374151;
+  margin-bottom: 2rem;
+}
+
+/* Team grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Team member card styling */
+.team-member-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  color: white;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.team-member-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.team-member-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+.team-member-card .member-role {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.team-member-card p {
+  color: #6b7280;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.team-member-card .member-details {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.team-member-card .member-details p {
+  margin-bottom: 0.25rem;
+}
+
+/* Team member card animations */
+.team-member-card {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.team-member-card:nth-child(1) { animation-delay: 0.1s; }
+.team-member-card:nth-child(2) { animation-delay: 0.2s; }
+.team-member-card:nth-child(3) { animation-delay: 0.3s; }
+.team-member-card:nth-child(4) { animation-delay: 0.4s; }
+.team-member-card:nth-child(5) { animation-delay: 0.5s; }
+.team-member-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .team-page {
+    background: linear-gradient(135deg, 
+      #1f2937 0%, 
+      #374151 15%, 
+      #4b5563 30%, 
+      #6b7280 45%, 
+      #4b5563 60%, 
+      #374151 75%, 
+      #1f2937 100%);
+  }
+  
+  .team-page h1,
+  .team-page h2,
+  .team-page h3,
+  .team-page h4,
+  .team-page h5,
+  .team-page h6 {
+    color: #f9fafb !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  
+  .team-page p {
+    color: #e5e7eb !important;
+  }
+  
+  .team-heading {
+    color: #f9fafb;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  
+  .team-description {
+    color: #e5e7eb;
+  }
+  
+  .team-member-card {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .team-member-card:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .team-member-card h3 {
+    color: #f9fafb;
+  }
+  
+  .team-member-card .member-role {
+    color: #d1d5db;
+  }
+  
+  .team-member-card p {
+    color: #d1d5db;
+  }
+  
+  .team-member-card .member-details {
+    color: #9ca3af;
+  }
+} 

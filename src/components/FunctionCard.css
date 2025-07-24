@@ -1,0 +1,452 @@
+/* ========================================
+   FUNCTION CARD COMPONENT STYLES
+   ======================================== */
+
+
+
+/* Focus indicator for accessibility */
+.function-card-focus-indicator {
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: 0.75rem;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.function-card-focus-indicator:focus-within {
+  border-color: #3b82f6;
+}
+
+/* Card hover effects */
+.function-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.function-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Image loading states */
+.function-card-image {
+  transition: opacity 0.3s ease;
+}
+
+.function-card-image.loading {
+  opacity: 0.5;
+}
+
+/* Card title styling */
+.function-card-title {
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Ensure theme colors are applied */
+.function-card h3.function-name-blue {
+  color: #6b8fc9 !important;
+  text-shadow: 0 0 8px #b3c6e6, 0 0 2px #6b8fc9 !important;
+}
+
+.function-card h3.function-name-purple {
+  color: #4b478a !important;
+  text-shadow: 0 0 8px #b3b0d6, 0 0 2px #4b478a !important;
+}
+
+.function-card h3.function-name-green {
+  color: #6bbfa3 !important;
+  text-shadow: 0 0 8px #b2e2d2, 0 0 2px #6bbfa3 !important;
+}
+
+.function-card h3.function-name-brown {
+  color: #8d6e63 !important;
+  text-shadow: 0 0 8px #d7c2b7, 0 0 2px #8d6e63 !important;
+}
+
+/* Card buttons styling */
+.function-card-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.function-card-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  min-width: 120px;
+}
+
+.function-card-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.function-card-button:active {
+  transform: translateY(0);
+}
+
+.function-card-contact-button {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 2px solid currentColor !important;
+  color: inherit !important;
+  text-shadow: none !important;
+}
+
+.function-card-contact-button:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .function-card {
+    height: 18rem;
+  }
+  
+  .function-card-buttons {
+    margin-top: 0.75rem;
+  }
+  
+  .function-card-button {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    min-width: 100px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .function-card {
+    height: 20rem;
+  }
+  
+  .function-card-buttons {
+    margin-top: 0.875rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .function-card {
+    height: 22rem;
+  }
+  
+  .function-card-buttons {
+    margin-top: 1rem;
+  }
+}
+
+/* ========================================
+   CONTACT CARD STYLES
+   ======================================== */
+
+.contact-card-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.contact-card {
+  position: relative;
+  border-radius: 0.75rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: modalSlideIn 0.3s ease-out;
+  border: 1px solid #e5e7eb;
+  background: white;
+  width: 100%;
+  height: 18rem;
+  max-width: 400px;
+}
+
+.contact-card-header {
+  background: linear-gradient(135deg, #6b8fc9, #4b478a, #6bbfa3, #8d6e63);
+  color: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-card-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  flex: 1;
+}
+
+.contact-card-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-card-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.contact-card-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: calc(100% - 4rem);
+  overflow-y: auto;
+}
+
+.contact-option-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.contact-option-button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+
+.contact-option-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #6b8fc9;
+}
+
+.contact-option-icon {
+  font-size: 1.25rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  flex-shrink: 0;
+}
+
+.contact-option-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.contact-option-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contact-option-value {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Contact option specific hover styles */
+.whatsapp-button:hover {
+  border-color: #25d366;
+  background: linear-gradient(135deg, #f0fff4, #e6fff0);
+}
+
+.whatsapp-button .contact-option-icon {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+}
+
+.email-button:hover {
+  border-color: #6b8fc9;
+  background: linear-gradient(135deg, #f0f4ff, #e6f0ff);
+}
+
+.phone-button:hover {
+  border-color: #4b478a;
+  background: linear-gradient(135deg, #f8f0ff, #f0e6ff);
+}
+
+/* Function-specific contact card colors */
+.blue-medical-theme .contact-card-header {
+  background: linear-gradient(135deg, #6b8fc9, #5a7bb8);
+}
+
+.blue-medical-theme .contact-option-button:hover {
+  border-color: #6b8fc9;
+  background: linear-gradient(135deg, #f0f4ff, #e6f0ff);
+}
+
+.purple-it-theme .contact-card-header {
+  background: linear-gradient(135deg, #4b478a, #3a3a7a);
+}
+
+.purple-it-theme .contact-option-button:hover {
+  border-color: #4b478a;
+  background: linear-gradient(135deg, #f8f0ff, #f0e6ff);
+}
+
+.green-health-theme .contact-card-header {
+  background: linear-gradient(135deg, #6bbfa3, #5aae92);
+}
+
+.green-health-theme .contact-option-button:hover {
+  border-color: #6bbfa3;
+  background: linear-gradient(135deg, #f0fff4, #e6fff0);
+}
+
+.brown-advertising-theme .contact-card-header {
+  background: linear-gradient(135deg, #8d6e63, #7c5d52);
+}
+
+.brown-advertising-theme .contact-option-button:hover {
+  border-color: #8d6e63;
+  background: linear-gradient(135deg, #fff8f0, #fff0e6);
+}
+
+/* Card animations */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .contact-card {
+    background: #1f2937;
+    border-color: #4b5563;
+  }
+  
+  .contact-option-button {
+    background: #374151;
+    border-color: #4b5563;
+    color: #f9fafb;
+  }
+  
+  .contact-option-button:hover {
+    background: #4b5563;
+    border-color: #6b8fc9;
+  }
+  
+  .contact-option-label {
+    color: #e5e7eb;
+  }
+  
+  .contact-option-value {
+    color: #9ca3af;
+  }
+  
+  .contact-option-icon {
+    background: linear-gradient(135deg, #4b5563, #6b7280);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .contact-card {
+    width: 95%;
+    height: 16rem;
+    margin: 1rem;
+  }
+  
+  .contact-card-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .contact-card-title {
+    font-size: 0.875rem;
+  }
+  
+  .contact-card-content {
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+  
+  .contact-option-button {
+    padding: 0.5rem;
+  }
+  
+  .contact-option-icon {
+    font-size: 1rem;
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  
+  .contact-option-label {
+    font-size: 0.75rem;
+  }
+  
+  .contact-option-value {
+    font-size: 0.625rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .contact-card {
+    height: 20rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .contact-card {
+    height: 22rem;
+  }
+} 
