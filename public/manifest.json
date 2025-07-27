@@ -1,6 +1,7 @@
 {
-  "short_name": "PMI Functions",
-  "name": "PMI Functions",
+  "short_name": "PMI",
+  "name": "PMI - Permanent Integration Trading",
+  "description": "Leading provider of medical products, healthcare solutions, and IT services across the Gulf region",
   "icons": [
     {
       "src": "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751977454/PMI_Circile_Gray_wiu9mh.png",
@@ -20,6 +21,9 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#6b8fc9",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en"
 }

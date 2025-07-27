@@ -9,7 +9,7 @@ import medicamentsAnimation from '../lottie img/medicaments.json';
 import shoppingCartAnimation from '../lottie img/shopping cart (1).json';
 import medicalAnimation from '../lottie img/Medical.json';
 import doctorHealthAnimation from '../lottie img/Doctor and health symbols.json';
-import medicalKitAnimation from '../lottie img/medical kit.json';
+// import medicalKitAnimation from '../lottie img/medical kit.json';
 import meetingAnimation from '../lottie img/Meeting.json';
 import shoppingEcommerceAnimation from '../lottie img/shopping Ecommerce.json';
 import shippingUSAnimation from '../lottie img/Shipping to United States.json';

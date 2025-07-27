@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
 import FunctionCard from '../components/FunctionCard';
 import { functions } from '../data/functions';
 import Header from '../components/Header';
@@ -30,7 +29,6 @@ if (typeof window !== 'undefined' && !window.homeAnimationShownThisSession) {
  * @returns {JSX.Element} Home page with animated content
  */
 function Home() {
-  const location = useLocation();
   const [visibleDescWords, setVisibleDescWords] = useState([]);
   const [visibleCards, setVisibleCards] = useState([]);
   const [descriptionComplete, setDescriptionComplete] = useState(false);
@@ -145,14 +143,18 @@ function Home() {
     }, observerOptions);
 
     // Observe sections
-    if (advisoryRef.current) observer.observe(advisoryRef.current);
-    if (expertsRef.current) observer.observe(expertsRef.current);
-    if (partnersRef.current) observer.observe(partnersRef.current);
+    const advisoryElement = advisoryRef.current;
+    const expertsElement = expertsRef.current;
+    const partnersElement = partnersRef.current;
+
+    if (advisoryElement) observer.observe(advisoryElement);
+    if (expertsElement) observer.observe(expertsElement);
+    if (partnersElement) observer.observe(partnersElement);
 
     return () => {
-      if (advisoryRef.current) observer.unobserve(advisoryRef.current);
-      if (expertsRef.current) observer.unobserve(expertsRef.current);
-      if (partnersRef.current) observer.unobserve(partnersRef.current);
+      if (advisoryElement) observer.unobserve(advisoryElement);
+      if (expertsElement) observer.unobserve(expertsElement);
+      if (partnersElement) observer.unobserve(partnersElement);
     };
   }, [sectionsReady]);
 
