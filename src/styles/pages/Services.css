@@ -758,3 +758,431 @@
     padding: 4px;
   }
 } 
+
+/* Mobile and Tablet Responsive Design */
+
+/* Tablet Landscape (1024px and below) */
+@media (max-width: 1024px) {
+  .side-by-side-lottie-section {
+    gap: 3rem;
+    padding: 1.5rem;
+  }
+  
+  .lottie-text-content {
+    padding: 2.5rem;
+    max-width: 500px;
+  }
+  
+  .lottie-title {
+    font-size: 2.25rem;
+  }
+  
+  .lottie-description {
+    font-size: 1.1rem;
+  }
+  
+  .lottie-animation {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .placeholder-title {
+    font-size: 2rem;
+  }
+  
+  .placeholder-description {
+    font-size: 1rem;
+  }
+  
+  .slide-nav-btn {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .slide-indicators {
+    gap: 0.75rem;
+  }
+  
+  .slide-indicator {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Tablet Portrait (768px and below) */
+@media (max-width: 768px) {
+  .side-by-side-lottie-section {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    min-height: auto;
+  }
+  
+  .lottie-text-content {
+    padding: 2rem;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .lottie-title {
+    font-size: 2rem;
+  }
+  
+  .lottie-title::after {
+    width: 60px;
+    height: 3px;
+  }
+  
+  .lottie-description {
+    font-size: 1rem;
+  }
+  
+  .lottie-animation-content {
+    order: -1;
+  }
+  
+  .lottie-animation {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .placeholder-slide {
+    padding: 2rem 1rem;
+  }
+  
+  .placeholder-icon {
+    font-size: 3rem;
+  }
+  
+  .placeholder-title {
+    font-size: 1.75rem;
+  }
+  
+  .placeholder-description {
+    font-size: 0.95rem;
+  }
+  
+  .slide-nav-btn {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .slide-nav-prev {
+    left: 1rem;
+  }
+  
+  .slide-nav-next {
+    right: 1rem;
+  }
+  
+  .slide-indicators {
+    gap: 0.5rem;
+  }
+  
+  .slide-counter {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Large (640px and below) */
+@media (max-width: 640px) {
+  .side-by-side-lottie-section {
+    gap: 1.5rem;
+    padding: 0.75rem;
+  }
+  
+  .lottie-text-content {
+    padding: 1.5rem;
+  }
+  
+  .lottie-title {
+    font-size: 1.75rem;
+  }
+  
+  .lottie-description {
+    font-size: 0.9rem;
+  }
+  
+  .lottie-animation {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .placeholder-slide {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .placeholder-icon {
+    font-size: 2.5rem;
+  }
+  
+  .placeholder-title {
+    font-size: 1.5rem;
+  }
+  
+  .placeholder-description {
+    font-size: 0.85rem;
+  }
+  
+  .slide-nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .slide-nav-prev {
+    left: 0.5rem;
+  }
+  
+  .slide-nav-next {
+    right: 0.5rem;
+  }
+  
+  .slide-indicators {
+    gap: 0.375rem;
+  }
+  
+  .slide-indicator {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .slide-counter {
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile Small (480px and below) */
+@media (max-width: 480px) {
+  .side-by-side-lottie-section {
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .lottie-text-content {
+    padding: 1rem;
+  }
+  
+  .lottie-title {
+    font-size: 1.5rem;
+  }
+  
+  .lottie-description {
+    font-size: 0.85rem;
+  }
+  
+  .lottie-animation {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .placeholder-slide {
+    padding: 1rem 0.5rem;
+  }
+  
+  .placeholder-icon {
+    font-size: 2rem;
+  }
+  
+  .placeholder-title {
+    font-size: 1.25rem;
+  }
+  
+  .placeholder-description {
+    font-size: 0.8rem;
+  }
+  
+  .slide-nav-btn {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .slide-nav-prev {
+    left: 0.25rem;
+  }
+  
+  .slide-nav-next {
+    right: 0.25rem;
+  }
+  
+  .slide-indicators {
+    gap: 0.25rem;
+  }
+  
+  .slide-indicator {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .slide-counter {
+    font-size: 0.75rem;
+  }
+}
+
+/* Mobile Extra Small (360px and below) */
+@media (max-width: 360px) {
+  .lottie-text-content {
+    padding: 0.75rem;
+  }
+  
+  .lottie-title {
+    font-size: 1.25rem;
+  }
+  
+  .lottie-description {
+    font-size: 0.8rem;
+  }
+  
+  .lottie-animation {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .placeholder-slide {
+    padding: 0.75rem 0.25rem;
+  }
+  
+  .placeholder-icon {
+    font-size: 1.75rem;
+  }
+  
+  .placeholder-title {
+    font-size: 1.125rem;
+  }
+  
+  .placeholder-description {
+    font-size: 0.75rem;
+  }
+  
+  .slide-nav-btn {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .slide-indicator {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .slide-counter {
+    font-size: 0.7rem;
+  }
+}
+
+/* Handle horizontal overflow on mobile */
+@media (max-width: 768px) {
+  .services-page {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .services-slider-section,
+  .services-slider-container,
+  .multi-slide-section,
+  .side-by-side-lottie-section {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .lottie-text-content,
+  .lottie-animation-content {
+    overflow-x: hidden;
+    width: 100%;
+  }
+}
+
+/* Ensure proper text wrapping on mobile */
+@media (max-width: 640px) {
+  .lottie-title,
+  .placeholder-title {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .lottie-description,
+  .placeholder-description {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.6;
+  }
+}
+
+/* Optimize animations for mobile performance */
+@media (max-width: 768px) {
+  .lottie-text-content,
+  .lottie-animation-content,
+  .placeholder-slide {
+    will-change: transform;
+  }
+  
+  .lottie-text-content:hover,
+  .lottie-animation-content:hover,
+  .placeholder-slide:hover {
+    will-change: auto;
+  }
+}
+
+/* Ensure proper spacing on mobile */
+@media (max-width: 640px) {
+  .lottie-title::after {
+    margin: 1rem auto 0;
+  }
+  
+  .lottie-description::before {
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* Optimize Lottie animation for mobile */
+@media (max-width: 768px) {
+  .lottie-animation {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Ensure proper touch targets on mobile */
+@media (max-width: 768px) {
+  .slide-nav-btn,
+  .slide-indicator {
+    min-width: 44px;
+    min-height: 44px;
+    cursor: pointer;
+  }
+  
+  .slide-nav-btn:active,
+  .slide-indicator:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Optimize navigation for mobile */
+@media (max-width: 640px) {
+  .slide-nav-btn {
+    opacity: 0.8;
+  }
+  
+  .slide-nav-btn:hover {
+    opacity: 1;
+  }
+  
+  .slide-indicators {
+    bottom: 1rem;
+  }
+  
+  .slide-counter {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/* Ensure proper slide transitions on mobile */
+@media (max-width: 768px) {
+  .slide-content {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .lottie-animation-content {
+    transition: opacity 0.3s ease-in-out;
+  }
+} 

@@ -379,6 +379,21 @@
     font-size: 0.875rem;
     min-width: 100px;
   }
+  
+  .social-icon-link-mobile {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .mobile-menu-button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .mobile-menu-button svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 @media (min-width: 641px) and (max-width: 768px) {
@@ -388,6 +403,161 @@
   
   .mobile-social-link {
     min-width: 140px;
+  }
+  
+  .social-icon-link-mobile {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .mobile-menu-button {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .navbar-gradient {
+    padding: 0.25rem 0;
+  }
+  
+  .mobile-nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .mobile-social-links {
+    padding: 0.5rem 1rem;
+  }
+  
+  .mobile-social-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    min-width: 80px;
+  }
+  
+  .social-icon-link-mobile {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .mobile-menu-button {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .mobile-menu-button svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Very small mobile devices */
+@media (max-width: 360px) {
+  .mobile-nav-link {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.85rem;
+  }
+  
+  .mobile-social-link {
+    padding: 0.375rem 0.625rem;
+    font-size: 0.75rem;
+    min-width: 70px;
+  }
+  
+  .social-icon-link-mobile {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .mobile-menu-button {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .mobile-menu-button svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Handle horizontal overflow on mobile */
+@media (max-width: 768px) {
+  .navbar-gradient {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .mobile-nav-container {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .mobile-nav-menu {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .mobile-social-links {
+    overflow-x: hidden;
+    width: 100%;
+  }
+}
+
+/* Ensure proper text wrapping on mobile */
+@media (max-width: 640px) {
+  .mobile-nav-link,
+  .mobile-social-link {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
+}
+
+/* Optimize touch targets for mobile */
+@media (max-width: 768px) {
+  .social-icon-link-mobile,
+  .mobile-menu-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .mobile-nav-link,
+  .mobile-social-link {
+    min-height: 44px;
+  }
+}
+
+/* Prevent zoom on input focus for iOS */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .mobile-nav-link,
+  .mobile-social-link {
+    font-size: 16px;
+  }
+}
+
+/* Smooth scrolling for mobile */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Performance optimizations */
+@media (max-width: 768px) {
+  .social-icon-link-mobile,
+  .mobile-menu-button,
+  .mobile-nav-link,
+  .mobile-social-link {
+    will-change: transform;
+  }
+  
+  .social-icon-link-mobile:hover,
+  .mobile-menu-button:hover,
+  .mobile-nav-link:hover,
+  .mobile-social-link:hover {
+    will-change: auto;
   }
 }
 
@@ -507,19 +677,4 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-/* Smooth scrolling for mobile */
-@media (max-width: 768px) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
-/* Prevent zoom on input focus for iOS */
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  .mobile-nav-link,
-  .mobile-social-link {
-    font-size: 16px;
-  }
 } 

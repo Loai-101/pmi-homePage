@@ -56,16 +56,21 @@ function Vision() {
     }, observerOptions);
 
     // Observe sections
-    if (heroRef.current) observer.observe(heroRef.current);
-    if (missionRef.current) observer.observe(missionRef.current);
-    if (visionRef.current) observer.observe(visionRef.current);
-    if (countriesRef.current) observer.observe(countriesRef.current);
+    const heroElement = heroRef.current;
+    const missionElement = missionRef.current;
+    const visionElement = visionRef.current;
+    const countriesElement = countriesRef.current;
+
+    if (heroElement) observer.observe(heroElement);
+    if (missionElement) observer.observe(missionElement);
+    if (visionElement) observer.observe(visionElement);
+    if (countriesElement) observer.observe(countriesElement);
 
     return () => {
-      if (heroRef.current) observer.unobserve(heroRef.current);
-      if (missionRef.current) observer.unobserve(missionRef.current);
-      if (visionRef.current) observer.unobserve(visionRef.current);
-      if (countriesRef.current) observer.unobserve(countriesRef.current);
+      if (heroElement) observer.unobserve(heroElement);
+      if (missionElement) observer.unobserve(missionElement);
+      if (visionElement) observer.unobserve(visionElement);
+      if (countriesElement) observer.unobserve(countriesElement);
     };
   }, []);
 

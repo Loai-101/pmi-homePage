@@ -513,3 +513,424 @@
     color: #d1d5db;
   }
 } 
+
+/* Mobile and Tablet Responsive Design */
+
+/* Tablet Landscape (1024px and below) */
+@media (max-width: 1024px) {
+  .about-content {
+    max-width: 90%;
+    padding: 0 1rem;
+  }
+  
+  .about-section {
+    padding: 2rem 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .division-card {
+    padding: 1.5rem;
+  }
+  
+  .specialties-grid {
+    gap: 1rem;
+  }
+  
+  .services-list {
+    gap: 0.75rem;
+  }
+  
+  .stakeholders-grid {
+    gap: 1rem;
+  }
+}
+
+/* Tablet Portrait (768px and below) */
+@media (max-width: 768px) {
+  .about-content {
+    max-width: 95%;
+    padding: 0 0.75rem;
+  }
+  
+  .about-header {
+    margin-bottom: 2rem;
+  }
+  
+  .about-section {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .section-text {
+    font-size: 0.95rem;
+  }
+  
+  .division-card {
+    padding: 1.25rem;
+  }
+  
+  .division-title {
+    font-size: 1.25rem;
+  }
+  
+  .division-description {
+    font-size: 0.9rem;
+  }
+  
+  .specialties-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .specialty-item {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .services-list {
+    gap: 0.5rem;
+  }
+  
+  .service-item {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .stakeholders-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .stakeholder-item {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .mission-statement {
+    padding: 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile Large (640px and below) */
+@media (max-width: 640px) {
+  .about-content {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+  
+  .about-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-section {
+    padding: 1rem 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.25rem;
+  }
+  
+  .section-text {
+    font-size: 0.9rem;
+  }
+  
+  .division-card {
+    padding: 1rem;
+  }
+  
+  .division-title {
+    font-size: 1.125rem;
+  }
+  
+  .division-description {
+    font-size: 0.85rem;
+  }
+  
+  .specialties-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .specialty-item {
+    padding: 0.625rem;
+    font-size: 0.85rem;
+  }
+  
+  .services-list {
+    gap: 0.375rem;
+  }
+  
+  .service-item {
+    padding: 0.625rem;
+    font-size: 0.85rem;
+  }
+  
+  .stakeholders-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .stakeholder-item {
+    padding: 0.625rem;
+    font-size: 0.85rem;
+  }
+  
+  .mission-statement {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .about-heading {
+    font-size: 1.5rem;
+  }
+  
+  .about-description {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile Small (480px and below) */
+@media (max-width: 480px) {
+  .about-content {
+    padding: 0 0.25rem;
+  }
+  
+  .about-section {
+    padding: 0.75rem 0.25rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .section-title {
+    font-size: 1.125rem;
+  }
+  
+  .section-text {
+    font-size: 0.85rem;
+  }
+  
+  .division-card {
+    padding: 0.75rem;
+  }
+  
+  .division-title {
+    font-size: 1rem;
+  }
+  
+  .division-description {
+    font-size: 0.8rem;
+  }
+  
+  .specialty-item {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .service-item {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .stakeholder-item {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .mission-statement {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .about-heading {
+    font-size: 1.25rem;
+  }
+  
+  .about-description {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Extra Small (360px and below) */
+@media (max-width: 360px) {
+  .about-section {
+    padding: 0.5rem 0.125rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .section-title {
+    font-size: 1rem;
+  }
+  
+  .section-text {
+    font-size: 0.8rem;
+  }
+  
+  .division-card {
+    padding: 0.5rem;
+  }
+  
+  .division-title {
+    font-size: 0.9rem;
+  }
+  
+  .division-description {
+    font-size: 0.75rem;
+  }
+  
+  .specialty-item {
+    padding: 0.375rem;
+    font-size: 0.75rem;
+  }
+  
+  .service-item {
+    padding: 0.375rem;
+    font-size: 0.75rem;
+  }
+  
+  .stakeholder-item {
+    padding: 0.375rem;
+    font-size: 0.75rem;
+  }
+  
+  .mission-statement {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .about-heading {
+    font-size: 1.125rem;
+  }
+  
+  .about-description {
+    font-size: 0.85rem;
+  }
+}
+
+/* Handle horizontal overflow on mobile */
+@media (max-width: 768px) {
+  .about-page {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .about-content {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .about-section {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .specialties-grid,
+  .services-list,
+  .stakeholders-grid {
+    overflow-x: hidden;
+    width: 100%;
+  }
+}
+
+/* Ensure proper text wrapping on mobile */
+@media (max-width: 640px) {
+  .about-heading,
+  .section-title,
+  .division-title,
+  .specialty-item,
+  .service-item,
+  .stakeholder-item {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .about-description,
+  .section-text,
+  .division-description,
+  .mission-statement {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.6;
+  }
+}
+
+/* Optimize animations for mobile performance */
+@media (max-width: 768px) {
+  .about-section,
+  .division-card,
+  .specialty-item,
+  .service-item,
+  .stakeholder-item {
+    will-change: transform;
+  }
+  
+  .about-section:hover,
+  .division-card:hover,
+  .specialty-item:hover,
+  .service-item:hover,
+  .stakeholder-item:hover {
+    will-change: auto;
+  }
+}
+
+/* Ensure proper spacing on mobile */
+@media (max-width: 640px) {
+  .about-title {
+    gap: 0.25rem;
+  }
+  
+  .about-logo {
+    height: 2.5rem;
+  }
+  
+  .division-card::before {
+    opacity: 0.1;
+  }
+  
+  .specialty-item::before,
+  .service-item::before,
+  .stakeholder-item::before {
+    opacity: 0.05;
+  }
+}
+
+/* Optimize touch targets for mobile */
+@media (max-width: 768px) {
+  .division-card,
+  .specialty-item,
+  .service-item,
+  .stakeholder-item {
+    min-height: 44px;
+    cursor: pointer;
+  }
+  
+  .division-card:active,
+  .specialty-item:active,
+  .service-item:active,
+  .stakeholder-item:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Ensure proper grid layouts on mobile */
+@media (max-width: 640px) {
+  .specialties-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stakeholders-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .services-list {
+    flex-direction: column;
+  }
+} 

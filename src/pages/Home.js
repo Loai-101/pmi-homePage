@@ -29,10 +29,7 @@ if (typeof window !== 'undefined' && !window.homeAnimationShownThisSession) {
  * @returns {JSX.Element} Home page with animated content
  */
 function Home() {
-  const [visibleDescWords, setVisibleDescWords] = useState([]);
   const [visibleCards, setVisibleCards] = useState([]);
-  const [descriptionComplete, setDescriptionComplete] = useState(false);
-  const [cardsComplete, setCardsComplete] = useState(false);
   const [sectionsReady, setSectionsReady] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(false);
@@ -62,10 +59,7 @@ function Home() {
     } else {
       // Skip animation, show all content immediately
       setShouldAnimate(false);
-      setVisibleDescWords(DESCRIPTION.split(' ').filter(word => word.trim() !== '').map((_, i) => i));
-      setDescriptionComplete(true);
       setVisibleCards(functions.map((_, i) => i));
-      setCardsComplete(true);
       setSectionsReady(true);
     }
     
@@ -76,34 +70,10 @@ function Home() {
   useEffect(() => {
     if (!shouldAnimate || !isInitialized) return;
     
-    const words = DESCRIPTION.split(' ').filter(word => word.trim() !== '');
-    setVisibleDescWords([]);
-    setDescriptionComplete(false);
-    
-    // Start the word animation after a short delay
+    // Start the animation after a short delay
     const startDelay = setTimeout(() => {
-      // Use a more reliable approach with Promise-based delays
-      const animateWordsSequentially = async () => {
-        for (let i = 0; i < words.length; i++) {
-          await new Promise(resolve => {
-            setTimeout(() => {
-              setVisibleDescWords(prev => [...prev, i]);
-              resolve();
-            }, window.innerWidth <= 768 ? 80 : 100);
-          });
-        }
-        setDescriptionComplete(true);
-      };
-      
-      animateWordsSequentially();
-      
-      // Fallback: ensure all words are visible after 5 seconds
-      const fallback = setTimeout(() => {
-        setVisibleDescWords(words.map((_, i) => i));
-        setDescriptionComplete(true);
-      }, 5000);
-      
-      return () => clearTimeout(fallback);
+      // Enable sections to be shown on scroll
+      setSectionsReady(true);
     }, 600); // Reduced initial delay for mobile
     
     return () => clearTimeout(startDelay);
@@ -114,7 +84,6 @@ function Home() {
     if (!isInitialized) return;
     // Show all cards immediately
     setVisibleCards([0, 1, 2, 3]);
-    setCardsComplete(true);
     // Enable sections to be shown on scroll
     setTimeout(() => {
       setSectionsReady(true);
