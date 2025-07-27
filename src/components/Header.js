@@ -32,75 +32,45 @@ function Header() {
   return (
     <header className="navbar-gradient">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-3">
-          <div className="flex items-center">
-            <Link to="/" className="flex items-center">
-              <img 
-                src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751977454/PMI_Circile_Gray_wiu9mh.png" 
-                alt="PMI Logo" 
-                className="h-6 sm:h-8 w-auto"
-              />
-              <span className="ml-2 sm:ml-3 text-lg sm:text-xl font-extrabold text-white tracking-wide navbar-functions-animate pmi-company-name">
-                PMI
-              </span>
-            </Link>
-          </div>
-          
-          {/* Desktop Navigation */}
+        <div className="flex items-center justify-between py-4">
+          {/* Left side - Navigation */}
           <Navigation />
           
-          <div className="flex items-center space-x-2 sm:space-x-4">
-            <div className="relative group">
-              <a href="tel:13676757" className="hover:brightness-125" title="Call">
+          {/* Right side - Social icons and mobile menu */}
+          <div className="flex items-center space-x-2 sm:space-x-3">
+            <a href="tel:13676757" className="social-icon-link" title="Call">
                 <FaPhoneAlt className="w-5 h-5 social-icon-phone" />
               </a>
-              <div className="social-tooltip group-hover:opacity-100">
-                13676757
-              </div>
-            </div>
-            <div className="relative group">
-              <a href="https://wa.me/13676757" target="_blank" rel="noopener noreferrer" className="hover:brightness-125" title="WhatsApp">
+            <a href="https://wa.me/13676757" target="_blank" rel="noopener noreferrer" className="social-icon-link" title="WhatsApp">
                 <FaWhatsapp className="w-5 h-5 social-icon-whatsapp" />
               </a>
-              <div className="social-tooltip group-hover:opacity-100">
-                WhatsApp: 13676757
-              </div>
-            </div>
-            <div className="relative group">
-              <a href="https://www.instagram.com/pmi.me/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" className="hover:brightness-125" title="Instagram">
+            <a href="https://www.instagram.com/pmi.me/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" className="social-icon-link" title="Instagram">
                 <FaInstagram className="w-5 h-5 social-icon-instagram" />
               </a>
-              <div className="social-tooltip group-hover:opacity-100">
-                @pmi.me
-              </div>
-            </div>
-            <div className="relative group">
-              <a href="mailto:pmiteam@pmi-me.net" className="hover:brightness-125" title="Email">
+            <a href="mailto:pmiteam@pmi-me.net" className="social-icon-link" title="Email">
                 <FaEnvelope className="w-5 h-5 social-icon-email" />
               </a>
-              <div className="social-tooltip group-hover:opacity-100">
-                pmiteam@pmi-me.net
-              </div>
-            </div>
             
             {/* Mobile menu button */}
+            <div className="md:hidden ml-2">
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden mobile-menu-button"
+                className="mobile-menu-button"
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
-                <FaTimes className="w-5 h-5 text-gray-700 dark:text-white" />
+                  <FaTimes className="w-6 h-6 text-gray-700 dark:text-white" />
               ) : (
-                <FaBars className="w-5 h-5 text-gray-700 dark:text-white" />
+                  <FaBars className="w-6 h-6 text-gray-700 dark:text-white" />
               )}
             </button>
+            </div>
           </div>
         </div>
         
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mobile-nav-container">
+          <div className="md:hidden mobile-nav-container show">
             <nav className="mobile-nav-menu">
               <Link 
                 to="/" 
@@ -117,25 +87,18 @@ function Header() {
                 Services
               </Link>
               <Link 
-                to="/projects" 
+                to="/our-vision" 
                 className="mobile-nav-link"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Projects
+                Our Vision
               </Link>
               <Link 
-                to="/countries" 
+                to="/about" 
                 className="mobile-nav-link"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Countries
-              </Link>
-              <Link 
-                to="/team" 
-                className="mobile-nav-link"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Team
+                About
               </Link>
             </nav>
           </div>

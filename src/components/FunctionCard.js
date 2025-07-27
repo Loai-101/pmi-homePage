@@ -168,7 +168,7 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
           <div className="flex-shrink-0">
             <div className={`w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 ${!imageLoaded ? 'image-loading' : ''} ${themeStyles.shimmerClass}`}>
           <img
-            src={imageError ? 'https://via.placeholder.com/192x192/1e40af/ffffff?text=PMI' : pmFunction.logo}
+                                src={imageError ? 'https://res.cloudinary.com/dvybb2xnc/image/upload/v1751977454/PMI_Circile_Gray_wiu9mh.png' : pmFunction.logo}
             alt={`${pmFunction.name} logo`}
             className="w-full h-full object-contain"
             onLoad={handleImageLoad}
@@ -196,7 +196,7 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
       <div className="p-4 sm:p-6 relative z-10 h-full flex flex-col items-center justify-center">
         <div className={`w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 mb-3 sm:mb-4 ${!imageLoaded ? 'image-loading' : ''} ${themeStyles.shimmerClass}`}>
           <img
-            src={imageError ? 'https://via.placeholder.com/128x128/1e40af/ffffff?text=PMI' : pmFunction.logo}
+                                src={imageError ? 'https://res.cloudinary.com/dvybb2xnc/image/upload/v1751977454/PMI_Circile_Gray_wiu9mh.png' : pmFunction.logo}
             alt={`${pmFunction.shortName} logo`}
             className="w-full h-full object-contain"
             onLoad={handleImageLoad}

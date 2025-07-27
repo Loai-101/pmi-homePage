@@ -129,3 +129,4 @@ This project is for educational and showcase purposes. PMI logos and branding ar
 - Project Management Institute (PMI) for function information and resources
 - Tailwind CSS for the styling framework
 - React team for the amazing framework
+# pmi-home-page-

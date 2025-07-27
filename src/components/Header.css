@@ -2,78 +2,340 @@
    HEADER COMPONENT STYLES
    ======================================== */
 
-/* PMI company name styling */
-.pmi-company-name {
-  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+/* Header positioning and enhanced styling */
+.navbar-gradient {
+  position: relative;
+  z-index: 1000;
+  overflow: hidden;
+  background: linear-gradient(45deg, #6b8fc9, #4b478a, #6bbfa3, #8d6e63, #6b8fc9, #4b478a, #6bbfa3, #8d6e63);
+  background-size: 400% 400%;
+  animation: subtleGradientShift 20s ease-in-out infinite;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
 
-/* Social media icon colors */
+/* Prevent any unexpected boxes */
+.navbar-gradient * {
+  box-sizing: border-box;
+}
+
+/* Ensure no hidden elements can cause layout issues */
+.navbar-gradient [style*="display: none"],
+.navbar-gradient [style*="visibility: hidden"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* Prevent any unwanted popups or overlays */
+.navbar-gradient .popup,
+.navbar-gradient .overlay,
+.navbar-gradient .modal,
+.navbar-gradient .tooltip {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Prevent any unwanted elements on any interaction */
+.navbar-gradient *:hover::before,
+.navbar-gradient *:hover::after,
+.navbar-gradient *:active::before,
+.navbar-gradient *:active::after,
+.navbar-gradient *:focus::before,
+.navbar-gradient *:focus::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Prevent any unwanted pseudo-elements */
+.navbar-gradient *::before,
+.navbar-gradient *::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Aggressive hiding of any unwanted elements */
+.navbar-gradient div[class*="tooltip"],
+.navbar-gradient div[class*="popup"],
+.navbar-gradient div[class*="overlay"],
+.navbar-gradient div[class*="modal"],
+.navbar-gradient div[class*="dropdown"],
+.navbar-gradient div[class*="menu"]:not(.mobile-nav-menu) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  transform: scale(0) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Enhanced hover effects */
+.navbar-gradient a:hover {
+  transform: translateY(-1px);
+  transition: all 0.3s ease;
+}
+
+.navbar-gradient button:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Prevent any unwanted click states */
+.navbar-gradient a:active,
+.navbar-gradient button:active,
+.navbar-gradient a:focus,
+.navbar-gradient button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Prevent any unwanted visual feedback on click */
+.navbar-gradient *:active,
+.navbar-gradient *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Navigation text sizing */
+.navbar-gradient nav a {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  white-space: nowrap;
+}
+
+.navbar-gradient nav a span {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.navbar-gradient nav a svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .navbar-gradient nav a {
+    font-size: 1rem;
+  }
+  
+  .navbar-gradient nav a span {
+    font-size: 1rem;
+  }
+  
+  .navbar-gradient nav a svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .navbar-gradient nav a {
+    font-size: 1.125rem;
+  }
+  
+  .navbar-gradient nav a span {
+    font-size: 1.125rem;
+  }
+  
+  .navbar-gradient nav a svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+/* Focus states - removed to prevent unwanted squares */
+.navbar-gradient button:focus,
+.navbar-gradient a:focus {
+  outline: none !important;
+  outline-offset: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* PMI company name styling */
+.pmi-company-name {
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  font-weight: 900;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.pmi-company-name:hover {
+  color: #fbbf24;
+  transform: scale(1.05);
+}
+
+/* Social media icons enhanced styling */
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.social-icon-link:hover::before {
+  left: 100%;
+}
+
+.social-icon-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
 .social-icon-phone {
+  color: #ffffff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  transition: all 0.3s ease;
+}
+
+.social-icon-phone:hover {
   color: #22c55e;
+  filter: drop-shadow(0 4px 8px rgba(34, 197, 94, 0.8));
+  transform: scale(1.1);
 }
 
 .social-icon-whatsapp {
+  color: #ffffff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  transition: all 0.3s ease;
+}
+
+.social-icon-whatsapp:hover {
   color: #25D366;
+  filter: drop-shadow(0 4px 8px rgba(37, 211, 102, 0.8));
+  transform: scale(1.1);
 }
 
 .social-icon-instagram {
+  color: #ffffff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  transition: all 0.3s ease;
+}
+
+.social-icon-instagram:hover {
   color: #E1306C;
+  filter: drop-shadow(0 4px 8px rgba(225, 48, 108, 0.8));
+  transform: scale(1.1);
 }
 
 .social-icon-email {
+  color: #ffffff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  transition: all 0.3s ease;
+}
+
+.social-icon-email:hover {
   color: #3b82f6;
+  filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.8));
+  transform: scale(1.1);
 }
 
-/* Tooltip styling */
-.social-tooltip {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -2rem;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  font-size: 0.75rem;
-  border-radius: 0.25rem;
-  padding: 0.25rem 0.5rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  white-space: nowrap;
-  z-index: 50;
-}
-
-.social-tooltip:hover {
-  opacity: 1;
-}
+/* Tooltip styling - removed completely */
 
 /* Mobile menu button styling */
 .mobile-menu-button {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  background: rgb(243 244 246);
-  transition: background-color 0.2s ease;
+  display: none;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1001;
 }
 
 .mobile-menu-button:hover {
-  background: rgb(229 231 235);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
 }
 
 .dark .mobile-menu-button {
-  background: rgb(55 65 81);
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .dark .mobile-menu-button:hover {
-  background: rgb(75 85 99);
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Mobile navigation styling */
 .mobile-nav-container {
-  padding: 1rem 0;
-  border-top: 1px solid rgb(229 231 235);
+  display: none;
+  padding: 1.5rem 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(45deg, 
+    rgba(107, 143, 201, 0.95), 
+    rgba(75, 71, 138, 0.95), 
+    rgba(107, 191, 163, 0.95), 
+    rgba(141, 110, 99, 0.95), 
+    rgba(107, 143, 201, 0.95), 
+    rgba(75, 71, 138, 0.95), 
+    rgba(107, 191, 163, 0.95), 
+    rgba(141, 110, 99, 0.95));
+  background-size: 400% 400%;
+  animation: subtleGradientShift 20s ease-in-out infinite;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 1rem 1rem;
 }
 
 .dark .mobile-nav-container {
-  border-top: 1px solid rgb(55 65 81);
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .mobile-nav-menu {
@@ -84,12 +346,37 @@
 
 .mobile-nav-link {
   color: white;
-  transition: color 0.2s ease;
-  font-weight: 500;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin: 0.25rem 0;
+  display: block;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .mobile-nav-link:hover {
-  color: rgb(229 231 235);
+  color: #fbbf24;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Gradient animation keyframes */
+@keyframes subtleGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Responsive design */
@@ -98,6 +385,56 @@
   .mobile-nav-container,
   .mobile-nav-menu,
   .mobile-nav-link {
-    display: none;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    z-index: -1 !important;
+    pointer-events: none !important;
+    transform: scale(0) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
   }
+  
+  /* Ensure no mobile elements can appear on desktop */
+  .md\\:hidden {
+    display: none !important;
+  }
+}
+
+/* Mobile navigation container - hidden by default */
+.mobile-nav-container {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Only show mobile menu when explicitly triggered */
+.mobile-nav-container.show {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+  width: auto;
+  overflow: visible;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 1000;
+  pointer-events: auto;
 } 

@@ -30,7 +30,7 @@ function Footer() {
           </p>
           <div className="footer-divider"></div>
           <p className="footer-copyright">
-            © 2024 All rights reserved.
+            © 2022 All rights reserved.
           </p>
           <p className="footer-description">
             This is a showcase website for PMI functions and methodologies.

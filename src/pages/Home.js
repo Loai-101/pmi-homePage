@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import FunctionCard from '../components/FunctionCard';
 import { functions } from '../data/functions';
 import Header from '../components/Header';
@@ -6,6 +7,11 @@ import Footer from '../components/Footer';
 import '../styles/pages/Home.css';
 
 const DESCRIPTION = "Through creativity, innovation and quality, we empower lives and adding value by our diverse range of organizations, providing excellence in cosmetics, medical products, general essentials, and IT solutions.";
+
+// Global variable to track if animation has been shown in this session
+if (typeof window !== 'undefined' && !window.homeAnimationShownThisSession) {
+  window.homeAnimationShownThisSession = false;
+}
 
 /**
  * Home Page Component
@@ -24,10 +30,14 @@ const DESCRIPTION = "Through creativity, innovation and quality, we empower live
  * @returns {JSX.Element} Home page with animated content
  */
 function Home() {
+  const location = useLocation();
   const [visibleDescWords, setVisibleDescWords] = useState([]);
   const [visibleCards, setVisibleCards] = useState([]);
   const [descriptionComplete, setDescriptionComplete] = useState(false);
+  const [cardsComplete, setCardsComplete] = useState(false);
+  const [sectionsReady, setSectionsReady] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
   
   // Scroll animation states
   const [visibleSections, setVisibleSections] = useState({
@@ -41,11 +51,36 @@ function Home() {
   const expertsRef = useRef(null);
   const partnersRef = useRef(null);
 
+  // Check if this is first visit or page refresh
   useEffect(() => {
+    const hasVisited = localStorage.getItem('pmi-home-visited');
+    const isPageRefresh = performance.navigation.type === 1 || window.performance.getEntriesByType('navigation')[0]?.type === 'reload';
+    
+    // Show animation if first visit, page refresh, or animation not shown in this session
+    if (!hasVisited || isPageRefresh || !window.homeAnimationShownThisSession) {
+      setShouldAnimate(true);
+      localStorage.setItem('pmi-home-visited', 'true');
+      window.homeAnimationShownThisSession = true;
+    } else {
+      // Skip animation, show all content immediately
+      setShouldAnimate(false);
+      setVisibleDescWords(DESCRIPTION.split(' ').filter(word => word.trim() !== '').map((_, i) => i));
+      setDescriptionComplete(true);
+      setVisibleCards(functions.map((_, i) => i));
+      setCardsComplete(true);
+      setSectionsReady(true);
+    }
+    
+    setIsInitialized(true);
+  }, []);
+
+  // Animation effect - only runs if shouldAnimate is true
+  useEffect(() => {
+    if (!shouldAnimate || !isInitialized) return;
+    
     const words = DESCRIPTION.split(' ').filter(word => word.trim() !== '');
     setVisibleDescWords([]);
     setDescriptionComplete(false);
-    setIsInitialized(true);
     
     // Start the word animation after a short delay
     const startDelay = setTimeout(() => {
@@ -74,29 +109,24 @@ function Home() {
     }, 600); // Reduced initial delay for mobile
     
     return () => clearTimeout(startDelay);
-  }, []);
+  }, [shouldAnimate, isInitialized]);
 
-  // Cards animation effect - now waits for description to complete
+  // Cards animation effect - show immediately
   useEffect(() => {
     if (!isInitialized) return;
-    if (descriptionComplete) {
-      setVisibleCards([]);
-      const timer = setTimeout(() => {
-        setTimeout(() => {
-          setVisibleCards([0]);
-        }, 0);
-        for (let i = 1; i < functions.length; i++) {
-          setTimeout(() => {
-            setVisibleCards(prev => [...prev, i]);
-          }, i * 200);
-        }
-      }, 1500);
-      return () => clearTimeout(timer);
-    }
-  }, [descriptionComplete, isInitialized]);
+    // Show all cards immediately
+    setVisibleCards([0, 1, 2, 3]);
+    setCardsComplete(true);
+    // Enable sections to be shown on scroll
+    setTimeout(() => {
+      setSectionsReady(true);
+    }, 100);
+  }, [isInitialized]);
 
   // Intersection Observer for scroll animations
   useEffect(() => {
+    if (!sectionsReady) return; // Only start observing when sections are ready
+
     const observerOptions = {
       threshold: 0.2,
       rootMargin: '0px 0px -50px 0px'
@@ -124,7 +154,7 @@ function Home() {
       if (expertsRef.current) observer.unobserve(expertsRef.current);
       if (partnersRef.current) observer.unobserve(partnersRef.current);
     };
-  }, []);
+  }, [sectionsReady]);
 
 
 
@@ -137,20 +167,23 @@ function Home() {
         <section className="pmi-functions-section">
           <div className="pmi-functions-header">
             <div className="pmi-functions-title">
-              <h2 className="pmi-functions-heading">
-                PERMANENT INTEGRATION TRADING
-              </h2>
+              <div className="pmi-logo-container">
+                <img 
+                  src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751977454/PMI_Circile_Gray_wiu9mh.png" 
+                  alt="PMI Logo" 
+                  className="pmi-logo-beside-title"
+                />
+              </div>
+              <div className="pmi-title-container">
+                <h2 className="pmi-functions-heading">
+                  PERMANENT INTEGRATION TRADING
+                </h2>
+                <div className="pmi-title-underline"></div>
+              </div>
             </div>
             <p className="pmi-description">
               <span id="desc-blue">
-                {DESCRIPTION.split(' ').filter(word => word.trim() !== '').map((word, idx) => (
-                  <span
-                    key={idx}
-                    className={`desc-word${!visibleDescWords.includes(idx) ? ' hidden-word' : ''}${visibleDescWords.includes(idx) ? ' word-animate' : ''}`}
-                  >
-                    {word}
-                  </span>
-                )).reduce((prev, curr, idx) => prev === null ? [curr] : [...prev, ' ', curr], null)}
+                {DESCRIPTION}
               </span>
             </p>
           </div>
@@ -181,7 +214,7 @@ function Home() {
         >
           <div className="section-header">
             <h2 className="section-title">Advisory Reports</h2>
-            <p className="section-subtitle">Expert insights and strategic guidance</p>
+            <div className="title-underline"></div>
           </div>
           <div className="advisory-grid">
             {[1, 2, 3, 4, 5].map((advisor, index) => (
@@ -192,7 +225,7 @@ function Home() {
               >
                 <div className="advisor-image">
                   <img 
-                    src="https://via.placeholder.com/200x200/6b8fc9/ffffff?text=Advisor" 
+                    src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751977454/PMI_Circile_Gray_wiu9mh.png" 
                     alt={`Advisor ${advisor}`}
                     className="advisor-img"
                   />
@@ -217,7 +250,7 @@ function Home() {
         >
           <div className="section-header">
             <h2 className="section-title">Experts</h2>
-            <p className="section-subtitle">Our team of specialized professionals</p>
+            <div className="title-underline"></div>
           </div>
           <div className="experts-grid">
             {[1, 2, 3, 4, 5].map((expert, index) => (
@@ -228,7 +261,7 @@ function Home() {
               >
                 <div className="expert-image">
                   <img 
-                    src="https://via.placeholder.com/200x200/4b478a/ffffff?text=Expert" 
+                    src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751977454/PMI_Circile_Gray_wiu9mh.png" 
                     alt={`Expert ${expert}`}
                     className="expert-img"
                   />
@@ -253,7 +286,7 @@ function Home() {
         >
           <div className="section-header">
             <h2 className="section-title">Our Partners</h2>
-            <p className="section-subtitle">Trusted collaborations worldwide</p>
+            <div className="title-underline"></div>
           </div>
           <div className="partners-grid">
             {/* FutureCitiesCouncil Inc */}
@@ -315,29 +348,24 @@ function Home() {
               </div>
             </div>
             
-            {/* Remaining placeholder partner */}
-            {[5].map((partner, index) => (
-              <div 
-                key={partner} 
-                className={`partner-card hover-info-card scroll-card ${visibleSections.partners ? 'card-visible' : ''}`}
-                style={{ animationDelay: `${(index + 4) * 150}ms` }}
-              >
-                <div className="partner-logo">
-                  <img 
-                    src="https://via.placeholder.com/150x100/6bbfa3/ffffff?text=Partner" 
-                    alt={`Partner ${partner}`}
-                    className="partner-img"
-                  />
-                  <div className="hover-info-overlay">
-                    <h3 className="hover-info-title">Partner {partner}</h3>
-                    <p className="hover-info-description">Strategic collaboration partner for mutual growth and innovation.</p>
-                  </div>
-                </div>
-                <div className="partner-info">
-                  <h3 className="partner-name">Partner {partner}</h3>
+            {/* Fifth Podium Racing Partner */}
+            <div 
+              className={`partner-card technical-partner-card scroll-card ${visibleSections.partners ? 'card-visible' : ''}`}
+              style={{ animationDelay: `${4 * 150}ms` }}
+            >
+              <div className="partner-logo-full">
+                <img 
+                  src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1753552171/ChatGPT_Image_Jul_26_2025_08_41_01_PM_svtphh.png" 
+                  alt="Podium Racing"
+                  className="partner-img-full"
+                />
+                <div className="technical-partner-overlay">
+                  <h3 className="technical-partner-text">Sport Partner</h3>
                 </div>
               </div>
-            ))}
+            </div>
+            
+
           </div>
         </section>
       </main>
