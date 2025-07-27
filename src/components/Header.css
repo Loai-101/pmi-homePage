@@ -417,12 +417,84 @@
   }
 }
 
-/* Focus styles for accessibility */
+/* Remove all focus outlines and click effects */
+.navbar-gradient *:focus,
+.navbar-gradient *:active,
+.navbar-gradient *:focus-visible,
+.navbar-gradient *:focus-within {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.navbar-gradient a:focus,
 .navbar-gradient button:focus,
-.navbar-gradient a:focus {
-  outline: 2px solid #f59e0b;
-  outline-offset: 2px;
-  border-radius: 4px;
+.navbar-gradient div:focus {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Remove any click effects */
+.navbar-gradient *:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Remove any focus-visible effects */
+.navbar-gradient *:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Specific rules for Navigation component links */
+.navbar-gradient nav a:focus,
+.navbar-gradient nav a:active,
+.navbar-gradient nav a:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+  text-decoration: none !important;
+}
+
+/* Remove any default browser focus styles */
+.navbar-gradient * {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+/* Ensure no focus rings on any interactive elements */
+.navbar-gradient a,
+.navbar-gradient button,
+.navbar-gradient [role="button"] {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.navbar-gradient a:focus,
+.navbar-gradient button:focus,
+.navbar-gradient [role="button"]:focus {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 /* Prevent text selection on mobile */

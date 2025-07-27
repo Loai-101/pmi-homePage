@@ -1,5 +1,33 @@
 /* Custom styles for PMI Departments website */
 
+/* Remove focus outlines globally for navbar elements */
+.navbar-gradient *:focus,
+.navbar-gradient *:active,
+.navbar-gradient *:focus-visible,
+.navbar-gradient *:focus-within {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.navbar-gradient a:focus,
+.navbar-gradient button:focus,
+.navbar-gradient div:focus {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Remove tap highlight on mobile */
+.navbar-gradient * {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+}
+
 /* Apply metallic white to body and html */
 html, body {
   background: linear-gradient(135deg, 
