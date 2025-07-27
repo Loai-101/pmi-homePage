@@ -137,6 +137,7 @@ function Header() {
                 className="mobile-menu-button touch-target"
                 aria-label="Toggle mobile menu"
                 aria-expanded={isMobileMenuOpen}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
                 {isMobileMenuOpen ? (
                   <FaTimes className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -149,80 +150,78 @@ function Header() {
         </div>
         
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mobile-nav-container show">
-            <nav className="mobile-nav-menu">
-              <Link 
-                to="/" 
-                className="mobile-nav-link"
+        <div className={`md:hidden mobile-nav-container ${isMobileMenuOpen ? 'show' : ''}`}>
+          <nav className="mobile-nav-menu">
+            <Link 
+              to="/" 
+              className="mobile-nav-link"
+              onClick={closeMobileMenu}
+            >
+              Home
+            </Link>
+            <Link 
+              to="/services" 
+              className="mobile-nav-link"
+              onClick={closeMobileMenu}
+            >
+              Services
+            </Link>
+            <Link 
+              to="/our-vision" 
+              className="mobile-nav-link"
+              onClick={closeMobileMenu}
+            >
+              Our Vision
+            </Link>
+            <Link 
+              to="/about" 
+              className="mobile-nav-link"
+              onClick={closeMobileMenu}
+            >
+              About
+            </Link>
+            
+            {/* Mobile Social Links */}
+            <div className="mobile-social-links">
+              <a 
+                href="tel:13676757" 
+                className="mobile-social-link"
                 onClick={closeMobileMenu}
               >
-                Home
-              </Link>
-              <Link 
-                to="/services" 
-                className="mobile-nav-link"
+                <FaPhoneAlt className="w-4 h-4" />
+                <span>Call</span>
+              </a>
+              <a 
+                href="https://wa.me/13676757" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="mobile-social-link"
                 onClick={closeMobileMenu}
               >
-                Services
-              </Link>
-              <Link 
-                to="/our-vision" 
-                className="mobile-nav-link"
+                <FaWhatsapp className="w-4 h-4" />
+                <span>WhatsApp</span>
+              </a>
+              <a 
+                href="https://www.instagram.com/pmi.me/?utm_source=ig_web_button_share_sheet" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="mobile-social-link"
                 onClick={closeMobileMenu}
               >
-                Our Vision
-              </Link>
-              <Link 
-                to="/about" 
-                className="mobile-nav-link"
+                <FaInstagram className="w-4 h-4" />
+                <span>Instagram</span>
+              </a>
+              <a 
+                href="mailto:pmiteam@pmi-me.net" 
+                className="mobile-social-link"
                 onClick={closeMobileMenu}
               >
-                About
-              </Link>
-              
-              {/* Mobile Social Links */}
-              <div className="mobile-social-links">
-                <a 
-                  href="tel:13676757" 
-                  className="mobile-social-link"
-                  onClick={closeMobileMenu}
-                >
-                  <FaPhoneAlt className="w-4 h-4" />
-                  <span>Call</span>
-                </a>
-                <a 
-                  href="https://wa.me/13676757" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="mobile-social-link"
-                  onClick={closeMobileMenu}
-                >
-                  <FaWhatsapp className="w-4 h-4" />
-                  <span>WhatsApp</span>
-                </a>
-                <a 
-                  href="https://www.instagram.com/pmi.me/?utm_source=ig_web_button_share_sheet" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="mobile-social-link"
-                  onClick={closeMobileMenu}
-                >
-                  <FaInstagram className="w-4 h-4" />
-                  <span>Instagram</span>
-                </a>
-                <a 
-                  href="mailto:pmiteam@pmi-me.net" 
-                  className="mobile-social-link"
-                  onClick={closeMobileMenu}
-                >
-                  <FaEnvelope className="w-4 h-4" />
-                  <span>Email</span>
-                </a>
-              </div>
-            </nav>
-          </div>
-        )}
+                <FaEnvelope className="w-4 h-4" />
+                <span>Email</span>
+              </a>
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
   );
