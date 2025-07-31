@@ -212,6 +212,7 @@ function Home() {
           <div className="section-header">
             <h2 className="section-title">Advisory Reports</h2>
             <div className="title-underline"></div>
+            <p className="section-hint">Tap on an advisor to see more details!</p>
           </div>
           <div className="advisory-grid">
             {advisors.map((advisor, index) => (
