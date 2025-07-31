@@ -33,6 +33,8 @@ function Home() {
   const [sectionsReady, setSectionsReady] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(false);
+  const [selectedAdvisor, setSelectedAdvisor] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   // Scroll animation states
   const [visibleSections, setVisibleSections] = useState({
@@ -45,6 +47,30 @@ function Home() {
   const advisoryRef = useRef(null);
   const expertsRef = useRef(null);
   const partnersRef = useRef(null);
+
+  // Advisor data
+  const advisors = [
+    {
+      id: 1,
+      name: "Dr Mohammad Alfahad",
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1753897396/mohammed_alfahed_dkasvv.jpg",
+      position: "Assistant Professor",
+      department: "Department of Public Administration",
+      institution: "College of Administrative Sciences - Kuwait University",
+      bio: "Dr Mohammad Alfahad is an Assistant Professor at the Department of Public Administration in the College of Administrative Sciences - Kuwait University. He Holds a Master's degree in Public Administration from The University of West Florida, specializing in Human Resource Management, and a PhD degree in Public Policy from George Mason University, specializing in Culture and Policy. In addition to being active in teaching and research, Alfahad has served as the assistant Dean for student affairs in the College of Administrative Sciences and headed the Business Administration Consulting Unit at the Center of Excellence (the consulting arm of the College) that serves as a gateway for businesses and Government entities and individuals seeking expert advice and professional development in various business-related areas. Mohammad has also served as the Head of the National Permanent Committee for Testing and Selecting Candidates for leadership Position in Government. Dr Alfahad enjoys working on the ground to solve Management, Public Administration, and Policy issues facing Government and Businesses entities. Currently, Dr Mohammad Alfahad is involved in various consulting activities in Kuwait and abroad trying to facilitate funding issues through non-traditional financial institutions."
+    }
+  ];
+
+  // Modal functions
+  const openModal = (advisor) => {
+    setSelectedAdvisor(advisor);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedAdvisor(null);
+  };
 
   // Check if this is first visit or page refresh
   useEffect(() => {
@@ -188,25 +214,28 @@ function Home() {
             <div className="title-underline"></div>
           </div>
           <div className="advisory-grid">
-            {[1, 2, 3, 4, 5].map((advisor, index) => (
+            {advisors.map((advisor, index) => (
               <div 
-                key={advisor} 
+                key={advisor.id}
                 className={`advisor-card hover-info-card scroll-card ${visibleSections.advisory ? 'card-visible' : ''}`}
                 style={{ animationDelay: `${index * 150}ms` }}
+                onClick={() => openModal(advisor)}
               >
                 <div className="advisor-image">
                   <img 
-                    src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751977454/PMI_Circile_Gray_wiu9mh.png" 
-                    alt={`Advisor ${advisor}`}
+                    src={advisor.image}
+                    alt={advisor.name}
                     className="advisor-img"
                   />
-                  <div className="hover-info-overlay">
-                    <h3 className="hover-info-title">Advisor {advisor}</h3>
-                    <p className="hover-info-description">Strategic guidance and expert insights for business development and market analysis.</p>
-                  </div>
                 </div>
                 <div className="advisor-info">
-                  <h3 className="advisor-name">Advisor {advisor}</h3>
+                  <div className="advisor-name" style={{ 
+                    color: '#000000', 
+                    textShadow: 'none',
+                    fontWeight: '700',
+                    fontSize: '1.1rem',
+                    textAlign: 'center'
+                  }}>{advisor.name}</div>
                 </div>
               </div>
             ))}
@@ -340,6 +369,38 @@ function Home() {
           </div>
         </section>
       </main>
+
+      {/* Advisor Modal */}
+      {isModalOpen && selectedAdvisor && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>
+              ×
+            </button>
+            <div className="modal-header">
+              <img 
+                src={selectedAdvisor.image}
+                alt={selectedAdvisor.name}
+                className="modal-advisor-img"
+              />
+              <div className="modal-advisor-info">
+                <h2 className="modal-advisor-name">{selectedAdvisor.name}</h2>
+                <div className="modal-advisor-details">
+                  <p className="modal-advisor-position">{selectedAdvisor.position}</p>
+                  <p className="modal-advisor-department">{selectedAdvisor.department}</p>
+                  <p className="modal-advisor-institution">{selectedAdvisor.institution}</p>
+                </div>
+              </div>
+            </div>
+            <div className="modal-body">
+              <div className="modal-bio-section">
+                <h3 className="modal-bio-title">Biography</h3>
+                <p className="modal-advisor-bio">{selectedAdvisor.bio}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>

@@ -934,3 +934,114 @@
     flex-direction: column;
   }
 } 
+
+/* Advisory Reports Grid Styles */
+.advisory-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.advisory-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.advisory-item:hover {
+  transform: translateY(-5px);
+}
+
+.advisory-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #4b478a;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 16px rgba(75, 71, 138, 0.15);
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.advisory-circle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.advisory-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #4b478a;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.advisory-position {
+  font-size: 0.9rem;
+  color: #6b8fc9;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.advisory-department {
+  font-size: 0.8rem;
+  color: #6b8fc9;
+  margin-bottom: 0.25rem;
+}
+
+.advisory-institution {
+  font-size: 0.8rem;
+  color: #6b8fc9;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .advisory-grid {
+    gap: 1.5rem;
+  }
+  
+  .advisory-circle {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .advisory-item {
+    max-width: 150px;
+  }
+  
+  .advisory-name {
+    font-size: 1rem;
+  }
+  
+  .advisory-position,
+  .advisory-department,
+  .advisory-institution {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .advisory-grid {
+    gap: 1rem;
+  }
+  
+  .advisory-circle {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .advisory-item {
+    max-width: 120px;
+  }
+} 
