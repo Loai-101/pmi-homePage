@@ -58,6 +58,24 @@ function Home() {
       department: "Department of Public Administration",
       institution: "College of Administrative Sciences - Kuwait University",
       bio: "Dr Mohammad Alfahad is an Assistant Professor at the Department of Public Administration in the College of Administrative Sciences - Kuwait University. He Holds a Master's degree in Public Administration from The University of West Florida, specializing in Human Resource Management, and a PhD degree in Public Policy from George Mason University, specializing in Culture and Policy. In addition to being active in teaching and research, Alfahad has served as the assistant Dean for student affairs in the College of Administrative Sciences and headed the Business Administration Consulting Unit at the Center of Excellence (the consulting arm of the College) that serves as a gateway for businesses and Government entities and individuals seeking expert advice and professional development in various business-related areas. Mohammad has also served as the Head of the National Permanent Committee for Testing and Selecting Candidates for leadership Position in Government. Dr Alfahad enjoys working on the ground to solve Management, Public Administration, and Policy issues facing Government and Businesses entities. Currently, Dr Mohammad Alfahad is involved in various consulting activities in Kuwait and abroad trying to facilitate funding issues through non-traditional financial institutions."
+    },
+    {
+      id: 2,
+      name: "Mr. Dheeraj Khatore",
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1754123077/Screenshot_2025-08-02_112224_pg9r4t.png",
+      position: "Healthcare Quality Auditor & International Business Operations Expert",
+      department: "Healthcare Management & EMS",
+      institution: "Multiple Organizations - CEO Role",
+      bio: "Mr. Dheeraj Khatore is a highly experienced professional with a diverse background in healthcare quality & ambulance auditing, emergency medical services (EMS), and entrepreneurship. As a Healthcare Quality Auditor, International Business Operations expert, and HEMS Paramedic, Mr. Dheeraj has accumulated over 1 decade of comprehensive work experience. As an entrepreneur, Dheeraj has ventured into various areas, including medical training, healthcare AI, digital health, quality accreditation, EMS consultations, and ambulance designs and operations in India and other countries. This entrepreneurial mindset showcases his ability to identify opportunities and drive innovation in the healthcare industry. Mr. Dheeraj holds a Master's degree in Health Care Management, specializing in Artificial Intelligence in Healthcare. He has also completed a Certificate Program in Digital Health from IIM Raipur, further enhancing his expertise in the intersection of healthcare and technology. Completed CXO Leadership program from Cornell University. Currently Mr. Dheeraj is in CEO's Role among the following organisations - Responsible for Global Operations, Business Expansion, and Investor Relations: American Accreditation Commission International - India & Africa, Emerge Medical Services UAE, Life One EMS - USA, India, EmergeSmart Health - UAE & India."
+    },
+    {
+      id: 3,
+      name: "Dr. Christian Bardon",
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1754123902/WhatsApp_Image_2025-08-02_at_11.38.09_179d7a38_uawcqh.jpg",
+      position: "President & CEO",
+      department: "Smart City Consultancy",
+      institution: "VotreCity Monaco",
+      bio: "Dr. Christian Bardon is a seasoned executive with over 20 years of experience at IBM France and Europe, later serving as Vice President at Gemplus and leading roles at Watchdata and MCTel. He founded VotreCity Monaco, a smart city consultancy supporting governments with advanced tech solutions, circular economy models, and cybersecurity. He has advised major global firms across Asia, Africa, and Europe, and has been a speaker at international smart city and tech events. Beyond business, he's been actively involved in sports leadership, including coaching Ghana's National Beach Soccer Team, and launching youth education programs in Africa. Dr. Christian Bardon holds engineering and business degrees from top French institutions and continues to contribute to global innovation and sustainable development."
     }
   ];
 
