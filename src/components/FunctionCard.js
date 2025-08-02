@@ -105,9 +105,9 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
       switch (functionId) {
         case 1: // PMI Medical
           return {
-            phone: '+93713676757',
-            whatsapp: '93713676757',
-            email: 'medical@pmi-me.net'
+            phone: '13676757',
+            whatsapp: '13676757',
+            email: 'pmiteam@pmi-me.net'
           };
         case 2: // IT Solutions
           return {
@@ -117,20 +117,20 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
           };
         case 3: // Health Care
           return {
-            phone: '+93713676757',
-            whatsapp: '93713676757',
-            email: 'healthcare@pmi-me.net'
+            phone: '13676757',
+            whatsapp: '13676757',
+            email: 'pmiteam@pmi-me.net'
           };
         case 4: // Advertising and Publicity
           return {
-            phone: '+93713676757',
-            whatsapp: '93713676757',
-            email: 'advertising@pmi-me.net'
+            phone: '13676757',
+            whatsapp: '13676757',
+            email: 'pmiteam@pmi-me.net'
           };
         default:
           return {
-            phone: '+93713676757',
-            whatsapp: '93713676757',
+            phone: '13676757',
+            whatsapp: '13676757',
             email: 'pmiteam@pmi-me.net'
           };
       }
@@ -264,7 +264,7 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
                   <div className="contact-option-details">
                     <span className="contact-option-label">WhatsApp</span>
                     <span className="contact-option-value">
-                      {pmFunction.id === 2 ? '+973 3200 9540' : '+937 1367 6757'}
+                      {pmFunction.id === 2 ? '+973 3200 9540' : '13676757'}
                     </span>
                   </div>
                 </button>
@@ -281,11 +281,7 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
                   <div className="contact-option-details">
                     <span className="contact-option-label">Email</span>
                     <span className="contact-option-value">
-                      {pmFunction.id === 1 ? 'medical@pmi-me.net' : 
-                       pmFunction.id === 2 ? 'it.solutions@pmigroup.me' :
-                       pmFunction.id === 3 ? 'healthcare@pmi-me.net' :
-                       pmFunction.id === 4 ? 'advertising@pmi-me.net' :
-                       'pmiteam@pmi-me.net'}
+                      {pmFunction.id === 2 ? 'it.solutions@pmigroup.me' : 'pmiteam@pmi-me.net'}
                     </span>
                   </div>
                 </button>
@@ -302,7 +298,7 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
                   <div className="contact-option-details">
                     <span className="contact-option-label">Phone Call</span>
                     <span className="contact-option-value">
-                      {pmFunction.id === 2 ? '+973 3200 9540' : '+937 1367 6757'}
+                      {pmFunction.id === 2 ? '+973 3200 9540' : '13676757'}
                     </span>
                   </div>
                 </button>
