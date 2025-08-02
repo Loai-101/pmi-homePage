@@ -221,14 +221,14 @@ function Home() {
           </div>
         </section>
 
-        {/* Advisory Reports Section */}
+        {/* Advisory Board Section */}
         <section 
           ref={advisoryRef}
           data-section="advisory"
           className={`advisory-reports-section scroll-section ${visibleSections.advisory ? 'section-visible' : ''}`}
         >
           <div className="section-header">
-            <h2 className="section-title">Advisory Reports</h2>
+            <h2 className="section-title">Advisory Board</h2>
             <div className="title-underline"></div>
             <p className="section-hint">Tap on an advisor to see more details!</p>
           </div>
