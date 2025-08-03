@@ -229,8 +229,8 @@
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
   object-fit: contain;
   aspect-ratio: 1 / 1;
-  min-width: 400px;
-  min-height: 400px;
+  min-width: 300px;
+  min-height: 300px;
   display: block;
   margin: 0 auto;
 }
@@ -239,64 +239,64 @@
 .lottie-animation-content.larger-animation .lottie-animation {
   max-width: 600px;
   max-height: 600px;
-  min-width: 500px;
-  min-height: 500px;
+  min-width: 400px;
+  min-height: 400px;
 }
 
 /* Extra-large animation for slide 7 (All-in-One Hospital Management System) */
 .lottie-animation-content.extra-large-animation .lottie-animation {
   max-width: 700px;
   max-height: 700px;
-  min-width: 600px;
-  min-height: 600px;
+  min-width: 500px;
+  min-height: 500px;
 }
 
 /* Responsive styling for larger animation */
 @media (max-width: 1024px) {
   .lottie-animation-content.larger-animation .lottie-animation {
-    max-width: 500px;
-    max-height: 500px;
-    min-width: 400px;
-    min-height: 400px;
-  }
-  
-  .lottie-animation-content.extra-large-animation .lottie-animation {
-    max-width: 600px;
-    max-height: 600px;
-    min-width: 500px;
-    min-height: 500px;
-  }
-}
-
-@media (max-width: 768px) {
-  .lottie-animation-content.larger-animation .lottie-animation {
-    max-width: 450px;
-    max-height: 450px;
-    min-width: 350px;
-    min-height: 350px;
-  }
-  
-  .lottie-animation-content.extra-large-animation .lottie-animation {
-    max-width: 500px;
-    max-height: 500px;
-    min-width: 400px;
-    min-height: 400px;
-  }
-}
-
-@media (max-width: 480px) {
-  .lottie-animation-content.larger-animation .lottie-animation {
-    max-width: 350px;
-    max-height: 350px;
+    max-width: 400px;
+    max-height: 400px;
     min-width: 300px;
     min-height: 300px;
   }
   
   .lottie-animation-content.extra-large-animation .lottie-animation {
-    max-width: 400px;
-    max-height: 400px;
-    min-width: 350px;
-    min-height: 350px;
+    max-width: 500px;
+    max-height: 500px;
+    min-width: 400px;
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lottie-animation-content.larger-animation .lottie-animation {
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 250px;
+    min-height: 250px;
+  }
+  
+  .lottie-animation-content.extra-large-animation .lottie-animation {
+    max-width: 350px;
+    max-height: 350px;
+    min-width: 300px;
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lottie-animation-content.larger-animation .lottie-animation {
+    max-width: 250px;
+    max-height: 250px;
+    min-width: 200px;
+    min-height: 200px;
+  }
+  
+  .lottie-animation-content.extra-large-animation .lottie-animation {
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 250px;
+    min-height: 250px;
   }
 }
 
@@ -533,10 +533,10 @@
   }
   
   .lottie-animation {
-    max-width: 400px;
-    max-height: 400px;
-    min-width: 350px;
-    min-height: 350px;
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 250px;
+    min-height: 250px;
   }
   
   .placeholder-slide {
@@ -602,10 +602,10 @@
   }
   
   .lottie-animation {
-    max-width: 300px;
-    max-height: 300px;
-    min-width: 250px;
-    min-height: 250px;
+    max-width: 250px;
+    max-height: 250px;
+    min-width: 200px;
+    min-height: 200px;
   }
   
   .placeholder-icon {
@@ -769,6 +769,42 @@
   
   .services-main {
     padding-top: 10px;
+  }
+  
+  /* Improve mobile layout for Services page */
+  .side-by-side-lottie-section {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    min-height: auto;
+  }
+  
+  .lottie-text-content {
+    order: 2;
+    text-align: center;
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+  
+  .lottie-animation-content {
+    order: 1;
+    max-width: 100%;
+  }
+  
+  .lottie-title {
+    font-size: 1.75rem;
+    text-align: center;
+  }
+  
+  .lottie-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .lottie-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: left;
   }
 }
 
