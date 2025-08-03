@@ -5,7 +5,10 @@ import Home from './pages/Home';
 import Services from './pages/Services';
 import OurVision from './pages/Vision';
 import About from './pages/About';
+import Countries from './pages/Countries';
 import ScrollToTop from './components/ScrollToTop';
+import MobileBottomNav from './components/MobileBottomNav';
+import './components/MobileBottomNav.css';
 
 /**
  * Main App Component
@@ -35,7 +38,9 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/our-vision" element={<OurVision />} />
         <Route path="/about" element={<About />} />
+        <Route path="/countries" element={<Countries />} />
       </Routes>
+      <MobileBottomNav />
     </Router>
   );
 }
