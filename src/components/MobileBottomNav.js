@@ -48,11 +48,6 @@ function MobileBottomNav() {
       path: '/about',
       name: 'About',
       icon: FaInfoCircle
-    },
-    {
-      path: '/countries',
-      name: 'Countries',
-      icon: FaGlobe
     }
   ];
 

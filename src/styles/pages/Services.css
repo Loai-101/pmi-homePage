@@ -761,6 +761,17 @@
 
 /* Mobile and Tablet Responsive Design */
 
+/* Add top padding for mobile to account for missing header */
+@media (max-width: 768px) {
+  .services-page {
+    padding-top: 20px;
+  }
+  
+  .services-main {
+    padding-top: 10px;
+  }
+}
+
 /* Tablet Landscape (1024px and below) */
 @media (max-width: 1024px) {
   .side-by-side-lottie-section {

@@ -9,6 +9,13 @@
   background: #ffffff;
 }
 
+/* Add top padding for mobile to account for missing header */
+@media (max-width: 768px) {
+  .home-page {
+    padding-top: 20px;
+  }
+}
+
 /* Home page text colors for white background */
 .home-page h1,
 .home-page h2,

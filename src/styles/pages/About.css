@@ -16,6 +16,13 @@
   animation: subtleGradientShift 20s ease-in-out infinite;
 }
 
+/* Add top padding for mobile to account for missing header */
+@media (max-width: 768px) {
+  .about-page {
+    padding-top: 20px;
+  }
+}
+
 /* About page text colors for white background */
 .about-page h1,
 .about-page h2,

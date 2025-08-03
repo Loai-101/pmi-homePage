@@ -10,6 +10,17 @@
   padding-top: 80px; /* Account for fixed header */
 }
 
+/* Add top padding for mobile to account for missing header */
+@media (max-width: 768px) {
+  .vision-page {
+    padding-top: 20px;
+  }
+  
+  .vision-main {
+    padding-top: 20px;
+  }
+}
+
 /* Vision page text colors for white background */
 .vision-page h1,
 .vision-page h2,
@@ -341,9 +352,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   margin-top: 3rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 1rem 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.countries-flags::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Add scroll indicator */
+.countries-section {
+  position: relative;
+}
+
+.countries-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(107, 143, 201, 0.3), transparent);
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .flag-item {
@@ -374,6 +410,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
   border: 2px solid rgba(255, 255, 255, 0.8);
+  flex-shrink: 0;
 }
 
 .eye-icon {
@@ -427,11 +464,14 @@
 
   .countries-flags {
     gap: 1rem;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .flag-image {
-    width: 60px;
-    height: 45px;
+    width: 80px;
+    height: 60px;
   }
 
 
@@ -639,13 +679,16 @@ html {
     font-size: 0.9rem;
   }
   
-  .countries-flags {
+    .countries-flags {
     gap: 0.75rem;
+    justify-content: flex-start;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
-  
+
   .flag-image {
-    width: 50px;
-    height: 35px;
+    width: 80px;
+    height: 60px;
   }
 }
 
@@ -707,13 +750,16 @@ html {
     font-size: 0.8rem;
   }
   
-  .countries-flags {
+    .countries-flags {
     gap: 0.5rem;
+    justify-content: flex-start;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
   }
-  
+
   .flag-image {
-    width: 40px;
-    height: 30px;
+    width: 80px;
+    height: 60px;
   }
 }
 
@@ -756,8 +802,8 @@ html {
   }
   
   .flag-image {
-    width: 35px;
-    height: 25px;
+    width: 80px;
+    height: 60px;
   }
 }
 
