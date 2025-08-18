@@ -652,6 +652,40 @@ a:focus {
   animation: brownPulse 3s ease-in-out infinite;
 }
 
+/* Remove all glowing effects in light mode */
+.blue-glow-effect,
+.purple-glow-effect,
+.green-glow-effect,
+.brown-glow-effect,
+.sparkling-bg,
+[class*="glow-effect"],
+[class*="Pulse"],
+[class*="pulse"],
+[class*="shimmer"] {
+  box-shadow: none !important;
+  animation: none !important;
+  text-shadow: none !important;
+  border: none !important;
+}
+
+/* Dark mode overrides - remove all glowing effects in night mode */
+.dark-mode .blue-glow-effect,
+.dark-mode .purple-glow-effect,
+.dark-mode .green-glow-effect,
+.dark-mode .brown-glow-effect {
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+/* Additional dark mode overrides for function cards */
+.dark-mode .sparkling-bg.blue-glow-effect,
+.dark-mode .sparkling-bg.purple-glow-effect,
+.dark-mode .sparkling-bg.green-glow-effect,
+.dark-mode .sparkling-bg.brown-glow-effect {
+  box-shadow: none !important;
+  animation: none !important;
+}
+
 .brown-shimmer-animation {
   position: relative;
   overflow: hidden;
@@ -896,6 +930,12 @@ a:focus {
 #desc-blue {
   color: #000000 !important;
   text-shadow: 0 2px 8px rgba(0,0,0,0.10) !important;
+}
+
+/* Dark mode override for desc-blue */
+.dark-mode #desc-blue {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.30) !important;
 }
 
 .desc-word {

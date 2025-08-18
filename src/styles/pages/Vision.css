@@ -6,6 +6,11 @@
   background: #ffffff;
 }
 
+/* Dark mode overrides for vision page */
+.dark-mode .vision-page {
+  background: var(--bg-primary);
+}
+
 .vision-main {
   padding-top: 80px; /* Account for fixed header */
 }
@@ -32,11 +37,27 @@
   text-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+/* Dark mode overrides for vision page headings */
+.dark-mode .vision-page h1,
+.dark-mode .vision-page h2,
+.dark-mode .vision-page h3,
+.dark-mode .vision-page h4,
+.dark-mode .vision-page h5,
+.dark-mode .vision-page h6 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
 .vision-page p {
   color: #374151 !important;
   font-weight: 500;
   text-shadow: none;
   line-height: 1.7;
+}
+
+/* Dark mode overrides for vision page paragraphs */
+.dark-mode .vision-page p {
+  color: #e5e5e5 !important;
 }
 
 /* Hero Section */

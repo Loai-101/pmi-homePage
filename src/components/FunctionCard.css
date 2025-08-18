@@ -24,11 +24,23 @@
   overflow: hidden;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: none !important; /* Remove default shadow in light mode */
+  border: none !important; /* Remove borders in light mode */
 }
 
 .function-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: none !important; /* Remove hover shadow in light mode */
+  border: none !important; /* Remove borders in light mode */
+}
+
+/* Dark mode - add subtle white shadow */
+.dark-mode .function-card {
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-mode .function-card:hover {
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.15) !important;
 }
 
 /* Image loading states */
@@ -67,6 +79,14 @@
   text-shadow: 0 0 8px #d7c2b7, 0 0 2px #8d6e63 !important;
 }
 
+/* Dark mode overrides - remove glowing frames in night mode */
+.dark-mode .function-card h3.function-name-blue,
+.dark-mode .function-card h3.function-name-purple,
+.dark-mode .function-card h3.function-name-green,
+.dark-mode .function-card h3.function-name-brown {
+  text-shadow: none !important;
+}
+
 /* Card buttons styling */
 .function-card-buttons {
   display: flex;
@@ -100,14 +120,65 @@
 }
 
 .function-card-contact-button {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border: 2px solid currentColor !important;
-  color: inherit !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
   text-shadow: none !important;
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-text-stroke: none !important;
 }
 
 .function-card-contact-button:hover {
-  background: rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 1) !important;
+  color: #000000 !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-text-stroke: none !important;
+}
+
+/* Dark mode override for contact button text - ensure black text */
+.dark-mode .function-card-contact-button {
+  color: #000000 !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-text-stroke: none !important;
+  border-color: #000000 !important;
+}
+
+.dark-mode .function-card-contact-button:hover {
+  background: rgba(255, 255, 255, 1) !important;
+  color: #000000 !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-text-stroke: none !important;
+  border-color: #000000 !important;
+}
+
+/* Additional dark mode overrides for function card buttons */
+.dark-mode .function-card-button {
+  color: #000000 !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-text-stroke: none !important;
+}
+
+/* Dark mode overrides for contact modal text */
+.dark-mode .contact-option-label,
+.dark-mode .contact-option-value {
+  color: #000000 !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-text-stroke: none !important;
+}
+
+.dark-mode .contact-card {
+  background: white !important;
+}
+
+.dark-mode .contact-option-button {
+  background: white !important;
+  color: #000000 !important;
 }
 
 /* Responsive design */
@@ -278,15 +349,21 @@
 .contact-option-label {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #374151;
+  color: #000000 !important;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-text-stroke: none !important;
 }
 
 .contact-option-value {
   font-size: 0.75rem;
-  color: #6b7280;
+  color: #000000 !important;
   font-weight: 500;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-text-stroke: none !important;
 }
 
 /* Contact option specific hover styles */

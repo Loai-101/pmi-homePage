@@ -215,6 +215,59 @@
   color: #d93025;
 }
 
+/* Night mode toggle button styles */
+.night-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fbbf24;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.night-mode-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.night-mode-toggle:hover::before {
+  left: 100%;
+}
+
+.night-mode-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+  color: #f59e0b;
+}
+
+.night-mode-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Theme icon colors */
+.social-icon-theme {
+  color: #fbbf24;
+}
+
+.social-icon-theme:hover {
+  color: #f59e0b;
+}
+
 /* Mobile menu button */
 .mobile-menu-button {
   display: flex;
@@ -344,6 +397,8 @@
   flex: 1;
   min-width: 120px;
   justify-content: center;
+  border: none;
+  cursor: pointer;
 }
 
 .mobile-social-link:hover {
@@ -353,6 +408,17 @@
 
 .mobile-social-link:active {
   transform: scale(0.95);
+}
+
+/* Mobile night mode toggle specific styling */
+.mobile-social-link button {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
 }
 
 /* Responsive design improvements */
@@ -390,6 +456,11 @@
     height: 32px;
   }
   
+  .night-mode-toggle {
+    width: 32px;
+    height: 32px;
+  }
+  
   .mobile-menu-button {
     width: 40px;
     height: 40px;
@@ -411,6 +482,11 @@
   }
   
   .social-icon-link-mobile {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .night-mode-toggle {
     width: 36px;
     height: 36px;
   }
@@ -447,6 +523,11 @@
     height: 28px;
   }
   
+  .night-mode-toggle {
+    width: 28px;
+    height: 28px;
+  }
+  
   .mobile-menu-button {
     width: 36px;
     height: 36px;
@@ -472,6 +553,11 @@
   }
   
   .social-icon-link-mobile {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .night-mode-toggle {
     width: 24px;
     height: 24px;
   }

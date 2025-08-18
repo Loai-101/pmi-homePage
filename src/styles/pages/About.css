@@ -16,6 +16,16 @@
   animation: subtleGradientShift 20s ease-in-out infinite;
 }
 
+/* Dark mode overrides for about page */
+.dark-mode .about-page {
+  background: linear-gradient(135deg, 
+    rgba(26, 26, 26, 0.95) 0%, 
+    rgba(45, 45, 45, 0.95) 25%, 
+    rgba(64, 64, 64, 0.95) 50%, 
+    rgba(45, 45, 45, 0.95) 75%, 
+    rgba(26, 26, 26, 0.95) 100%);
+}
+
 /* Add top padding for mobile to account for missing header */
 @media (max-width: 768px) {
   .about-page {
@@ -34,11 +44,27 @@
   text-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+/* Dark mode overrides for about page headings */
+.dark-mode .about-page h1,
+.dark-mode .about-page h2,
+.dark-mode .about-page h3,
+.dark-mode .about-page h4,
+.dark-mode .about-page h5,
+.dark-mode .about-page h6 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
 .about-page p {
   color: #374151 !important;
   font-weight: 500;
   text-shadow: none;
   line-height: 1.7;
+}
+
+/* Dark mode overrides for about page paragraphs */
+.dark-mode .about-page p {
+  color: #e5e5e5 !important;
 }
 
 /* About header section */

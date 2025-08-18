@@ -9,6 +9,11 @@
   background: #ffffff;
 }
 
+/* Dark mode overrides for services page */
+.dark-mode .services-page {
+  background: var(--bg-primary);
+}
+
 /* Services main container */
 .services-main {
   width: 100%;
@@ -27,11 +32,27 @@
   text-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+/* Dark mode overrides for services page headings */
+.dark-mode .services-page h1,
+.dark-mode .services-page h2,
+.dark-mode .services-page h3,
+.dark-mode .services-page h4,
+.dark-mode .services-page h5,
+.dark-mode .services-page h6 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
 .services-page p {
   color: #374151 !important;
   font-weight: 500;
   text-shadow: none;
   line-height: 1.7;
+}
+
+/* Dark mode overrides for services page paragraphs */
+.dark-mode .services-page p {
+  color: #e5e5e5 !important;
 }
 
 /* Services Slider Section */

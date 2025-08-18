@@ -8,6 +8,7 @@ import About from './pages/About';
 import ScrollToTop from './components/ScrollToTop';
 import MobileBottomNav from './components/MobileBottomNav';
 import './components/MobileBottomNav.css';
+import { ThemeProvider } from './context/ThemeContext';
 
 /**
  * Main App Component
@@ -30,16 +31,18 @@ function App() {
 
 
   return (
-    <Router>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/our-vision" element={<OurVision />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-      <MobileBottomNav />
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/our-vision" element={<OurVision />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        <MobileBottomNav />
+      </Router>
+    </ThemeProvider>
   );
 }
 

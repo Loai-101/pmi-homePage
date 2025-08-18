@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaPhoneAlt, FaInstagram, FaEnvelope, FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa';
+import { FaPhoneAlt, FaInstagram, FaEnvelope, FaWhatsapp, FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa';
 import Navigation from './Navigation';
+import { useTheme } from '../context/ThemeContext';
 import './Header.css';
 
 /**
@@ -26,6 +27,7 @@ import './Header.css';
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isDarkMode, toggleDarkMode } = useTheme();
 
   // Handle scroll effect for mobile menu
   useEffect(() => {
@@ -106,6 +108,20 @@ function Header() {
               >
                 <FaEnvelope className="w-4 h-4 sm:w-5 sm:h-5 social-icon-email" />
               </a>
+              
+              {/* Night Mode Toggle Button - Desktop */}
+              <button
+                onClick={toggleDarkMode}
+                className="social-icon-link touch-target"
+                title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                aria-label={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              >
+                {isDarkMode ? (
+                  <FaSun className="w-4 h-4 sm:w-5 sm:h-5 social-icon-theme" />
+                ) : (
+                  <FaMoon className="w-4 h-4 sm:w-5 sm:h-5 social-icon-theme" />
+                )}
+              </button>
             </div>
 
             {/* Mobile Social Icons - Compact */}
@@ -128,6 +144,20 @@ function Header() {
               >
                 <FaWhatsapp className="w-4 h-4" />
               </a>
+              
+              {/* Night Mode Toggle Button - Mobile */}
+              <button
+                onClick={toggleDarkMode}
+                className="social-icon-link-mobile"
+                title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                aria-label={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              >
+                {isDarkMode ? (
+                  <FaSun className="w-4 h-4" />
+                ) : (
+                  <FaMoon className="w-4 h-4" />
+                )}
+              </button>
             </div>
             
             {/* Mobile menu button */}
@@ -219,6 +249,24 @@ function Header() {
                 <FaEnvelope className="w-4 h-4" />
                 <span>Email</span>
               </a>
+              
+              {/* Night Mode Toggle - Mobile */}
+              <button
+                onClick={() => {
+                  toggleDarkMode();
+                  closeMobileMenu();
+                }}
+                className="mobile-social-link"
+                title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                aria-label={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              >
+                {isDarkMode ? (
+                  <FaSun className="w-4 h-4" />
+                ) : (
+                  <FaMoon className="w-4 h-4" />
+                )}
+                <span>{isDarkMode ? "Light Mode" : "Dark Mode"}</span>
+              </button>
             </div>
           </nav>
         </div>

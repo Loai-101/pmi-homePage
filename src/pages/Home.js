@@ -35,18 +35,22 @@ function Home() {
   const [shouldAnimate, setShouldAnimate] = useState(false);
   const [selectedAdvisor, setSelectedAdvisor] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedSponsor, setSelectedSponsor] = useState(null);
+  const [isSponsorModalOpen, setIsSponsorModalOpen] = useState(false);
   
   // Scroll animation states
   const [visibleSections, setVisibleSections] = useState({
     advisory: false,
     experts: false,
-    partners: false
+    partners: false,
+    sponsors: false
   });
   
   // Refs for intersection observer
   const advisoryRef = useRef(null);
   const expertsRef = useRef(null);
   const partnersRef = useRef(null);
+  const sponsorsRef = useRef(null);
 
   // Advisor data
   const advisors = [
@@ -79,6 +83,26 @@ function Home() {
     }
   ];
 
+  // Sponsor data
+  const sponsors = [
+    {
+      id: 1,
+      name: "Podium Racing Middle East",
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1755521268/Screenshot_2025-08-18_154524_nc3xfp.png",
+      description: "PMI is proud to support outstanding athletes in their journey to success. Recently, PMI sponsored the triathlete Mohammed Abdullatif, who achieved an impressive finishing time of 9:11 at the Full Ironman Germany. This remarkable performance reflects dedication, endurance, and world-class athletic spirit.",
+      achievements: "Through this sponsorship, PMI celebrates not only a record-breaking achievement but also its commitment to empowering athletes to reach their full potential. The company takes pride in being part of such a historic milestone and continues to encourage excellence in sports across the region.",
+      website: "https://l.instagram.com/?u=https%3A%2F%2Fmohamedhamada.com%2F%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAaeK_ZnP68ATE1p-60F2mziLUcsX5C83XYFBGJM6mTZWrkogcpFkmX1vKgf-SQ_aem_bHOMqkIDUS1bCv9Gs4PCuA&e=AT3gGnyQA1iTlaXIMIGQJOs8T4REV_HJ4JoWiqx8JjPdBv3O2TV4EUv_L0whDTAMOxSGpehRt9vKkG_UoiTBdUkugQahSf-eYGhtlFSmx2DYFNNZbc6wSw"
+    },
+    {
+      id: 2,
+      name: "A1 Stable",
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1754242068/WhatsApp_Image_2025-08-03_at_20.15.46_e842bd3a_vxgaxy.jpg",
+      description: "PMI is deeply committed to supporting equestrian sports, with a special focus on endurance horses. As part of this vision, PMI has partnered with A1 Stable, providing both technical and professional support to enhance the stable's operations and development. The company's dedication extends beyond technology, reaching into the welfare of the horses, the athletic team, and the overall sporting and health aspects of the stable.",
+      achievements: "Through this partnership, PMI proudly supports A1 Stable's first team, contributing to its growth and performance. By combining technical innovation with equestrian excellence, PMI aspires to see the team reach podiums and achieve remarkable milestones in endurance racing.",
+      website: "https://www.a1-stable.com/"
+    }
+  ];
+
   // Modal functions
   const openModal = (advisor) => {
     setSelectedAdvisor(advisor);
@@ -88,6 +112,21 @@ function Home() {
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedAdvisor(null);
+  };
+
+  // Sponsor modal functions
+  const openSponsorModal = (sponsor) => {
+    console.log('Opening sponsor modal for:', sponsor.name);
+    console.log('Sponsor data:', sponsor);
+    setSelectedSponsor(sponsor);
+    setIsSponsorModalOpen(true);
+    console.log('Modal state set to open');
+  };
+
+  const closeSponsorModal = () => {
+    console.log('Closing sponsor modal');
+    setIsSponsorModalOpen(false);
+    setSelectedSponsor(null);
   };
 
   // Check if this is first visit or page refresh
@@ -159,15 +198,18 @@ function Home() {
     const advisoryElement = advisoryRef.current;
     const expertsElement = expertsRef.current;
     const partnersElement = partnersRef.current;
+    const sponsorsElement = sponsorsRef.current;
 
     if (advisoryElement) observer.observe(advisoryElement);
     if (expertsElement) observer.observe(expertsElement);
     if (partnersElement) observer.observe(partnersElement);
+    if (sponsorsElement) observer.observe(sponsorsElement);
 
     return () => {
       if (advisoryElement) observer.unobserve(advisoryElement);
       if (expertsElement) observer.unobserve(expertsElement);
       if (partnersElement) observer.unobserve(partnersElement);
+      if (sponsorsElement) observer.unobserve(sponsorsElement);
     };
   }, [sectionsReady]);
 
@@ -249,7 +291,6 @@ function Home() {
                 </div>
                 <div className="advisor-info">
                   <div className="advisor-name" style={{ 
-                    color: '#000000', 
                     textShadow: 'none',
                     fontWeight: '700',
                     fontSize: '1.1rem',
@@ -261,41 +302,44 @@ function Home() {
           </div>
         </section>
 
-        {/* Experts Section */}
-        <section 
-          ref={expertsRef}
-          data-section="experts"
-          className={`experts-section scroll-section ${visibleSections.experts ? 'section-visible' : ''}`}
-        >
-          <div className="section-header">
-            <h2 className="section-title">Experts</h2>
-            <div className="title-underline"></div>
-          </div>
-          <div className="experts-grid">
-            {[1, 2, 3, 4, 5].map((expert, index) => (
-              <div 
-                key={expert} 
-                className={`expert-card hover-info-card scroll-card ${visibleSections.experts ? 'card-visible' : ''}`}
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
-                <div className="expert-image">
-                  <img 
-                    src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751977454/PMI_Circile_Gray_wiu9mh.png" 
-                    alt={`Expert ${expert}`}
-                    className="expert-img"
-                  />
-                  <div className="hover-info-overlay">
-                    <h3 className="hover-info-title">Expert {expert}</h3>
-                    <p className="hover-info-description">Specialized professional with deep expertise in industry-specific solutions and innovations.</p>
+
+        {/* Experts Section - Hidden until further notice */}
+        {false && (
+          <section 
+            ref={expertsRef}
+            data-section="experts"
+            className={`experts-section scroll-section ${visibleSections.experts ? 'section-visible' : ''}`}
+          >
+            <div className="section-header">
+              <h2 className="section-title">Experts</h2>
+              <div className="title-underline"></div>
+            </div>
+            <div className="experts-grid">
+              {[1, 2, 3, 4, 5].map((expert, index) => (
+                <div 
+                  key={expert} 
+                  className={`expert-card hover-info-card scroll-card ${visibleSections.experts ? 'card-visible' : ''}`}
+                  style={{ animationDelay: `${index * 150}ms` }}
+                >
+                  <div className="expert-image">
+                    <img 
+                      src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751977454/PMI_Circile_Gray_wiu9mh.png" 
+                      alt={`Expert ${expert}`}
+                      className="expert-img"
+                    />
+                    <div className="hover-info-overlay">
+                      <h3 className="hover-info-title">Expert {expert}</h3>
+                      <p className="hover-info-description">Specialized professional with deep expertise in industry-specific solutions and innovations.</p>
+                    </div>
+                  </div>
+                  <div className="expert-info">
+                    <h3 className="expert-name">Expert {expert}</h3>
                   </div>
                 </div>
-                <div className="expert-info">
-                  <h3 className="expert-name">Expert {expert}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Partners Section */}
         <section 
@@ -387,6 +431,37 @@ function Home() {
 
           </div>
         </section>
+
+        {/* Sponsors Section */}
+        <section 
+          ref={sponsorsRef}
+          data-section="sponsors"
+          className={`sponsors-section scroll-section ${visibleSections.sponsors ? 'section-visible' : ''}`}
+        >
+          <div className="section-header">
+            <h2 className="section-title">Our Sponsors</h2>
+            <div className="title-underline"></div>
+            <p className="section-hint">Tap on a sponsor to see more details!</p>
+          </div>
+          <div className="sponsors-grid">
+            {sponsors.map((sponsor, index) => (
+              <div 
+                key={sponsor.id}
+                className={`sponsor-card technical-partner-card scroll-card ${visibleSections.sponsors ? 'card-visible' : ''}`}
+                style={{ animationDelay: `${index * 150}ms` }}
+                onClick={() => openSponsorModal(sponsor)}
+              >
+                <div className="partner-logo-full">
+                  <img 
+                    src={sponsor.image}
+                    alt={sponsor.name}
+                    className="partner-img-full"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
       {/* Advisor Modal */}
@@ -416,6 +491,103 @@ function Home() {
                 <h3 className="modal-bio-title">Biography</h3>
                 <p className="modal-advisor-bio">{selectedAdvisor.bio}</p>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Sponsor Modal */}
+      {isSponsorModalOpen && selectedSponsor && (
+        <div className="sponsor-modal-overlay" onClick={closeSponsorModal} style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.7)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 9999
+        }}>
+          <div className="sponsor-modal-content" onClick={(e) => e.stopPropagation()} style={{
+            background: document.documentElement.classList.contains('dark-mode') ? '#1a1a1a' : 'white',
+            borderRadius: '12px',
+            padding: '2rem',
+            maxWidth: '600px',
+            width: '90%',
+            maxHeight: '80vh',
+            overflow: 'auto',
+            position: 'relative',
+            boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)'
+          }}>
+            <button 
+              onClick={closeSponsorModal}
+              style={{
+                position: 'absolute',
+                top: '1rem',
+                right: '1rem',
+                background: 'none',
+                border: 'none',
+                fontSize: '2rem',
+                cursor: 'pointer',
+                color: '#666',
+                zIndex: 1
+              }}
+            >
+              ×
+            </button>
+            
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem', gap: '1rem' }}>
+              <img 
+                src={selectedSponsor.image}
+                alt={selectedSponsor.name}
+                style={{
+                  width: '80px',
+                  height: '80px',
+                  borderRadius: '50%',
+                  objectFit: 'cover'
+                }}
+              />
+              <div>
+                <h2 style={{ 
+                  margin: 0, 
+                  color: '#000000 !important', 
+                  fontSize: '1.5rem', 
+                  fontWeight: 'bold', 
+                  textShadow: 'none !important',
+                  WebkitTextFillColor: '#000000',
+                  WebkitTextStroke: 'none'
+                }}>{selectedSponsor.name}</h2>
+              </div>
+            </div>
+            
+            <div>
+              <h3 style={{ color: '#000000', marginBottom: '1rem', fontSize: '1.2rem', fontWeight: 'bold', textShadow: 'none' }}>About</h3>
+              <p style={{ color: '#000000', lineHeight: '1.6', marginBottom: '2rem', fontSize: '1rem', textShadow: 'none' }}>{selectedSponsor.description}</p>
+              
+              <h3 style={{ color: '#000000', marginBottom: '1rem', fontSize: '1.2rem', fontWeight: 'bold', textShadow: 'none' }}>Achievements</h3>
+              <p style={{ color: '#000000', lineHeight: '1.6', marginBottom: '2rem', fontSize: '1rem', textShadow: 'none' }}>{selectedSponsor.achievements}</p>
+              
+              {selectedSponsor.website && (
+                <div>
+                  <h3 style={{ color: '#000000', marginBottom: '1rem', fontSize: '1.2rem', fontWeight: 'bold', textShadow: 'none' }}>Website</h3>
+                  <a 
+                    href={selectedSponsor.website} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{ 
+                      color: '#0066cc', 
+                      textDecoration: 'none',
+                      fontWeight: '600',
+                      fontSize: '1rem',
+                      textShadow: 'none'
+                    }}
+                  >
+                    Visit Website →
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>
