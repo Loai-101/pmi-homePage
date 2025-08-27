@@ -214,7 +214,10 @@ const FunctionCard = ({ function: pmFunction, isDetailView = false }) => {
             className={`function-card-button ${themeStyles.buttonClass}`}
             onClick={(e) => {
               e.stopPropagation();
-              if (pmFunction.officialLink && pmFunction.officialLink !== '#') {
+              if (pmFunction.id === 1) {
+                // PMI Medical - Show admin only message
+                alert("For Admin Use Only");
+              } else if (pmFunction.officialLink && pmFunction.officialLink !== '#') {
                 window.open(pmFunction.officialLink, '_blank', 'noopener,noreferrer');
               } else {
                 alert("Coming Soon!");
