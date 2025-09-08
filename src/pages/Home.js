@@ -91,12 +91,20 @@ function Home() {
       image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1755521268/Screenshot_2025-08-18_154524_nc3xfp.png",
       description: "PMI is proud to support outstanding athletes in their journey to success. Recently, PMI sponsored the triathlete Mohammed Abdullatif, who achieved an impressive finishing time of 9:11 at the Full Ironman Germany. This remarkable performance reflects dedication, endurance, and world-class athletic spirit.",
       achievements: "Through this sponsorship, PMI celebrates not only a record-breaking achievement but also its commitment to empowering athletes to reach their full potential. The company takes pride in being part of such a historic milestone and continues to encourage excellence in sports across the region.",
-      website: "https://l.instagram.com/?u=https%3A%2F%2Fmohamedhamada.com%2F%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAaeK_ZnP68ATE1p-60F2mziLUcsX5C83XYFBGJM6mTZWrkogcpFkmX1vKgf-SQ_aem_bHOMqkIDUS1bCv9Gs4PCuA&e=AT3gGnyQA1iTlaXIMIGQJOs8T4REV_HJ4JoWiqx8JjPdBv3O2TV4EUv_L0whDTAMOxSGpehRt9vKkG_UoiTBdUkugQahSf-eYGhtlFSmx2DYFNNZbc6wSw"
+      website: "https://mohamedhamada.com/?fbclid=PAZXh0bgNhZW0CMTEAAacpaqBM1t5LOFKb5B38AhDLUAkFdeYvVPXt3GW1yp4Yi5Lwz6OLCKqdX67V1g_aem_4Dl_45V4FZKT_wkowoWxPw"
     },
     {
       id: 2,
+      name: "PODIUM RACING MIDDLE EAST",
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1753552171/ChatGPT_Image_Jul_26_2025_08_41_01_PM_svtphh.png",
+      description: "Podium Racing Team is an international professional triathlon team, featuring seven Olympians including Leo Bergere (who took bronze in Paris), incredible young talent and raw power to fire them to the Teams title.",
+      achievements: "Podium Racing Founder, John Anthony, said: 'This international roster is composed of the best athletes in our sport while also giving next generation athletes like Fanni Szalai and John Reed the opportunity to compete at the highest level. With Tim Don's leadership, we're bullish about this season.' From that, it came the idea to expand this work in the middle east but in a different way fulfilling the need of the middle east sport industry.",
+      website: "https://podium-racing-website.vercel.app/"
+    },
+    {
+      id: 3,
       name: "A1 Stable",
-      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1754242068/WhatsApp_Image_2025-08-03_at_20.15.46_e842bd3a_vxgaxy.jpg",
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1753893962/A1_Profile_Pic_g3srpu.png",
       description: "PMI is deeply committed to supporting equestrian sports, with a special focus on endurance horses. As part of this vision, PMI has partnered with A1 Stable, providing both technical and professional support to enhance the stable's operations and development. The company's dedication extends beyond technology, reaching into the welfare of the horses, the athletic team, and the overall sporting and health aspects of the stable.",
       achievements: "Through this partnership, PMI proudly supports A1 Stable's first team, contributing to its growth and performance. By combining technical innovation with equestrian excellence, PMI aspires to see the team reach podiums and achieve remarkable milestones in endurance racing.",
       website: "https://www.a1-stable.com/"
