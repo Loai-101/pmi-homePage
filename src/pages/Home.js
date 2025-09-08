@@ -87,19 +87,19 @@ function Home() {
   const sponsors = [
     {
       id: 1,
-      name: "Podium Racing Middle East",
-      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1755521268/Screenshot_2025-08-18_154524_nc3xfp.png",
-      description: "PMI is proud to support outstanding athletes in their journey to success. Recently, PMI sponsored the triathlete Mohammed Abdullatif, who achieved an impressive finishing time of 9:11 at the Full Ironman Germany. This remarkable performance reflects dedication, endurance, and world-class athletic spirit.",
-      achievements: "Through this sponsorship, PMI celebrates not only a record-breaking achievement but also its commitment to empowering athletes to reach their full potential. The company takes pride in being part of such a historic milestone and continues to encourage excellence in sports across the region.",
-      website: "https://mohamedhamada.com/?fbclid=PAZXh0bgNhZW0CMTEAAacpaqBM1t5LOFKb5B38AhDLUAkFdeYvVPXt3GW1yp4Yi5Lwz6OLCKqdX67V1g_aem_4Dl_45V4FZKT_wkowoWxPw"
-    },
-    {
-      id: 2,
       name: "PODIUM RACING MIDDLE EAST",
       image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1753552171/ChatGPT_Image_Jul_26_2025_08_41_01_PM_svtphh.png",
       description: "Podium Racing Team is an international professional triathlon team, featuring seven Olympians including Leo Bergere (who took bronze in Paris), incredible young talent and raw power to fire them to the Teams title.",
       achievements: "Podium Racing Founder, John Anthony, said: 'This international roster is composed of the best athletes in our sport while also giving next generation athletes like Fanni Szalai and John Reed the opportunity to compete at the highest level. With Tim Don's leadership, we're bullish about this season.' From that, it came the idea to expand this work in the middle east but in a different way fulfilling the need of the middle east sport industry.",
       website: "https://podium-racing-website.vercel.app/"
+    },
+    {
+      id: 2,
+      name: "Mohammed Abdullatif",
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1755521268/Screenshot_2025-08-18_154524_nc3xfp.png",
+      description: "PMI is proud to support outstanding athletes in their journey to success. Recently, PMI sponsored the triathlete Mohammed Abdullatif, who achieved an impressive finishing time of 9:11 at the Full Ironman Germany. This remarkable performance reflects dedication, endurance, and world-class athletic spirit.",
+      achievements: "Through this sponsorship, PMI celebrates not only a record-breaking achievement but also its commitment to empowering athletes to reach their full potential. The company takes pride in being part of such a historic milestone and continues to encourage excellence in sports across the region.",
+      website: "https://mohamedhamada.com/?fbclid=PAZXh0bgNhZW0CMTEAAacpaqBM1t5LOFKb5B38AhDLUAkFdeYvVPXt3GW1yp4Yi5Lwz6OLCKqdX67V1g_aem_4Dl_45V4FZKT_wkowoWxPw"
     },
     {
       id: 3,
@@ -447,7 +447,7 @@ function Home() {
           className={`sponsors-section scroll-section ${visibleSections.sponsors ? 'section-visible' : ''}`}
         >
           <div className="section-header">
-            <h2 className="section-title">Our Sponsors</h2>
+            <h2 className="section-title">Sponsors by PMI</h2>
             <div className="title-underline"></div>
             <p className="section-hint">Tap on a sponsor to see more details!</p>
           </div>
