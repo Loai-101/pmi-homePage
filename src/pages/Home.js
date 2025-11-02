@@ -269,6 +269,14 @@ function Home() {
               </div>
             ))}
           </div>
+          <div className="pmi-detailing-aids-button-container">
+            <button 
+              className="pmi-detailing-aids-button"
+              onClick={() => window.open('https://pmi-mws.pmi-me.net/', '_blank', 'noopener,noreferrer')}
+            >
+              PMI Detailing Aids
+            </button>
+          </div>
         </section>
 
         {/* Advisory Board Section */}
