@@ -274,7 +274,7 @@ function Home() {
               className="pmi-detailing-aids-button"
               onClick={() => window.open('https://pmi-mws.pmi-me.net/', '_blank', 'noopener,noreferrer')}
             >
-              PMI Detailing Aids
+              PMI DA
             </button>
           </div>
         </section>
